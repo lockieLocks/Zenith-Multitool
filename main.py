@@ -377,49 +377,54 @@ def tools_menu():
 
 def main_ascii():
     ascii = f"""  {Fore.BLUE}
-
-
- __       __   ______   ______  __    __        __       __  ________  __    __  __    __ 
-|  \     /  \ /      \ |      \|  \  |  \      |  \     /  \|        \|  \  |  \|  \  |  |
-| $$\   /  $$|  $$$$$$\ \$$$$$$| $$\ | $$      | $$\   /  $$| $$$$$$$$| $$\ | $$| $$  | $$
-| $$$\ /  $$$| $$__| $$  | $$  | $$$\| $$      | $$$\ /  $$$| $$__    | $$$\| $$| $$  | $$
-| $$$$\  $$$$| $$    $$  | $$  | $$$$\ $$      | $$$$\  $$$$| $$  \   | $$$$\ $$| $$  | $$
-| $$\$$ $$ $$| $$$$$$$$  | $$  | $$\$$ $$      | $$\$$ $$ $$| $$$$$   | $$\$$ $$| $$  | $$
-| $$ \$$$| $$| $$  | $$ _| $$_ | $$ \$$$$      | $$ \$$$| $$| $$_____ | $$ \$$$$| $$__/ $$
-| $$  \$ | $$| $$  | $$|   $$ \| $$  \$$$      | $$  \$ | $$| $$     \| $$  \$$$ \$$    $$
- \$$      \$$ \$$   \$$ \$$$$$$ \$$   \$$       \$$      \$$ \$$$$$$$$ \$$   \$$  \$$$$$$ 
-                                                                                          
-                                                                                          
-                                100 - INSTALL and UPDATE ALL Tools
-                                t  - ALL Tools Runner")
-                                d - Discord Tools runner
-                                n - Network Tools runner
-                                u - Utillity Tools runner
-                                        Have Fun :3
+                   __       __   ______   ______  __    __        __       __  ________  __    __  __    __ 
+                  |  \     /  \ /      \ |      \|  \  |  \      |  \     /  \|        \|  \  |  \|  \  |  |
+                  | $$\   /  $$|  $$$$$$\ \$$$$$$| $$\ | $$      | $$\   /  $$| $$$$$$$$| $$\ | $$| $$  | $$
+                  | $$$\ /  $$$| $$__| $$  | $$  | $$$\| $$      | $$$\ /  $$$| $$__    | $$$\| $$| $$  | $$
+                  | $$$$\  $$$$| $$    $$  | $$  | $$$$\ $$      | $$$$\  $$$$| $$  \   | $$$$\ $$| $$  | $$
+                  | $$\$$ $$ $$| $$$$$$$$  | $$  | $$\$$ $$      | $$\$$ $$ $$| $$$$$   | $$\$$ $$| $$  | $$
+                  | $$ \$$$| $$| $$  | $$ _| $$_ | $$ \$$$$      | $$ \$$$| $$| $$_____ | $$ \$$$$| $$__/ $$
+                  | $$  \$ | $$| $$  | $$|   $$ \| $$  \$$$      | $$  \$ | $$| $$     \| $$  \$$$ \$$    $$
+                   \$$      \$$ \$$   \$$ \$$$$$$ \$$   \$$       \$$      \$$ \$$$$$$$$ \$$   \$$  \$$$$$$ 
+-----------------------------------------------------------------------------------------------------------------------
+                                |                                                     |
+                                |   3:< Welcome to MAIN MENU of lockies multitool >:3 |                                                            
+                                |         100 - INSTALL and UPDATE ALL Tools          |
+                                |         t  - ALL Tools Runner")                     |
+                                |         d - Discord Tools runner                    |
+                                |         n - Network Tools runner                    |
+                                |         u - Utillity Tools runner                   |
+                                |                 Have Fun :3                         |
+                                |_____________________________________________________|
 """
     print(ascii)
 
 def main():
     clear()
     main_ascii()
-    print("\n" + " " * 25 + "3:< Welcome to MAIN MENU of lockies multitool >:3" + " " * 25)
-    print("\n                                   [1]  - Install Discord Tools = Webhook spammer, Token Validator")
-    print("                                   [2]  - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
-    print("                                   [3]  - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker")
-    print("                                   [4]  - Install All tools = All of above")
-    print("                                   [99] - Exit")
+    print("\n                  [1]  - Install Discord Tools = Webhook spammer, Token Validator")
+    print("                  [2]  - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
+    print("                  [3]  - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker")
+    print("                  [4]  - Install All tools = All of above")
+    print("                  [99] - Exit")
     option = input("Option >> ")
     if option == '1':
         token_validator(run_option='n', return_to_menu=False)
         webhook_mutltitool_download(run_option='n', return_to_menu=False)
+        input("Press Enter to return...")
+        main()
     elif option == '2':
         ip_lookup_download(run_option='n', return_to_menu=False)
         ip_pinger_download(run_option='n', return_to_menu=False)
         site_checker(run_option='n', return_to_menu=False)
+        input("Press Enter to return...")
+        main()
     elif option == '3':
         username_lookup_download(run_option='n', return_to_menu=False)
         b64_download(run_option='n', return_to_menu=False)
         pwd_strength_checker(run_option='n', return_to_menu=False)
+        input("Press Enter to return...")
+        main()
     elif option == '4':
         install_all()
     elif option.lower().strip() == 't':
@@ -524,7 +529,7 @@ def network_main():
         network_main()
 
 def discord_ascii():
-    discord_ascii = f""" {Fore.LIGHTGREEN_EX}
+    discord_ascii = f""" {Fore.MAGENTA}
     
  *******   **                                      **       **********                    **        
 /**////** //                                      /**      /////**///                    /**        
