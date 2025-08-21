@@ -317,7 +317,7 @@ def install_all():
     tools_menu()
 
 def tools_ascii():
-    ascii = f""" {Fore.LIGHTGREEN_EX}
+    ascii = f""" {Fore.RED}
 
                              ______          __  ___                        
                             /_  __/__  ___  / / / _ \__ _____  ___  ___ ____
@@ -359,6 +359,9 @@ def tools_menu():
     elif option == '7':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         webhook_mutltitool_download(run_option, Download_option=False)
+    elif option == '8':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        token_validator(run_option, Download_option=False)
     elif option == '99':
         update()
     elif option == '404':
@@ -376,7 +379,7 @@ def tools_menu():
         tools_menu()
 
 def main_ascii():
-    ascii = f"""  {Fore.BLUE}
+    ascii = f"""  {Fore.LIGHTMAGENTA_EX}
                    __       __   ______   ______  __    __        __       __  ________  __    __  __    __ 
                   |  \     /  \ /      \ |      \|  \  |  \      |  \     /  \|        \|  \  |  \|  \  |  |
                   | $$\   /  $$|  $$$$$$\ \$$$$$$| $$\ | $$      | $$\   /  $$| $$$$$$$$| $$\ | $$| $$  | $$
