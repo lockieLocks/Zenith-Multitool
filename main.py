@@ -391,7 +391,10 @@ def main_ascii():
                                                                                           
                                                                                           
                                 100 - INSTALL and UPDATE ALL Tools
-                                t  - Run ALL Tools Runner")
+                                t  - ALL Tools Runner")
+                                d - Discord Tools runner
+                                n - Network Tools runner
+                                u - Utillity Tools runner
                                         Have Fun :3
 """
     print(ascii)
@@ -409,30 +412,24 @@ def main():
     if option == '1':
         token_validator(run_option='n', return_to_menu=False)
         webhook_mutltitool_download(run_option='n', return_to_menu=False)
-        print("Taking you to Utillity menu...")
-        time.sleep(0.5)
-        discord_tools_main()
     elif option == '2':
         ip_lookup_download(run_option='n', return_to_menu=False)
         ip_pinger_download(run_option='n', return_to_menu=False)
         site_checker(run_option='n', return_to_menu=False)
-        print("Taking you to Networking menu...")
-        time.sleep(0.5)
-        network_main()
     elif option == '3':
         username_lookup_download(run_option='n', return_to_menu=False)
         b64_download(run_option='n', return_to_menu=False)
         pwd_strength_checker(run_option='n', return_to_menu=False)
-        print("Taking you to Utillity menu...")
-        time.sleep(0.5)
-        utility_Tools_main()
     elif option == '4':
         install_all()
-        print("Taking you to Tools menu...")
-        time.sleep(0.5)
-        tools_menu()
     elif option.lower().strip() == 't':
         tools_menu()
+    elif option.lower().strip() == 'd':
+        discord_tools_main()
+    elif option.lower().strip() == 'u':
+        utility_Tools_main()
+    elif option.lower().strip() == 'n':
+        network_main()
     elif option == '100':
         update()
     elif option == '99':
