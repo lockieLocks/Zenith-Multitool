@@ -218,6 +218,37 @@ def site_checker(run_option, return_to_menu=True, Download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
+def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
+    site_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/nitro_gen.py"
+    folder_name = "nitro_gen"
+    os.makedirs(folder_name, exist_ok=True)
+    filename = os.path.join(folder_name, "nitro_gen.py")
+    try:
+        response = requests.get(site_multitool_link)
+        if response.status_code == 200:
+            if Download_option:
+                with open(filename, "wb") as file:
+                    file.write(response.content)
+                    print("Successfully downloaded nitro_generator.py")
+            else:
+                pass
+            if run_option.lower().strip() == 'y':
+                try:
+                    subprocess.run([sys.executable, filename])
+                except Exception as e:
+                    print(f"Error >> {e}")
+            else:
+                if return_to_menu:
+                    print("Returning...")
+                    time.sleep(0.5)
+                    tools_menu()
+                else:
+                    return
+        else:
+            print("Failed to download nitro_gen.py")
+    except Exception as e:
+        print(f"Error >> {e}")
+
 def pwd_strength_checker(run_option, return_to_menu=True, Download_option=True):
     pwd_strength_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/pwd_checker.py"
     folder_name = "password_strength_checker"
@@ -262,10 +293,9 @@ def token_validator(run_option, return_to_menu=True, Download_option=True):
                 with open(filename, "wb") as file:
                     file.write(response.content)
                     print("Successfully downloaded token_validator.py")
-            else:
-                return
-            with open(file_token, "w") as t:
-                t.write("put tokens here twin")
+                if not os.path.exists(file_token):
+                    with open(file_token, "w") as t:
+                        t.write("put tokens here twin")
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -302,6 +332,7 @@ def update():
     site_checker(run_option='n', return_to_menu=False)
     pwd_strength_checker(run_option='n', return_to_menu=False)
     token_validator(run_option='n', return_to_menu=False)
+    nitro_gen_download(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -313,6 +344,7 @@ def install_all():
     webhook_mutltitool_download(run_option='n', return_to_menu=False)
     site_checker(run_option='n', return_to_menu=False)
     pwd_strength_checker(run_option='n', return_to_menu=False)
+    nitro_gen_download(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -336,7 +368,7 @@ def tools_menu():
     print("                [------Network Tools------]          [------Utility Tools------]             [------Discord Tools------]")
     print("                     [1] - Ip Lookup                    [4] - B64 Tools                       [7] - Webhook Multitool")
     print("                     [2] - IP Pinger                    [5] - Username Lookup                 [8] - Token Validator")               
-    print("                     [3] - Site Multitool               [6] - Password Strength Checker")
+    print("                     [3] - Site Multitool               [6] - Password Strength Checker       [9] - Nitro Generator")
     option = input("Option >> ")
     if option == '1':
         run_option = input("You wanna run the tool? [Y or N] >> ")
@@ -362,6 +394,9 @@ def tools_menu():
     elif option == '8':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         token_validator(run_option, Download_option=False)
+    elif option == '9':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        nitro_gen_download(run_option, Download_option=False)
     elif option == '99':
         update()
     elif option == '404':
@@ -391,7 +426,7 @@ def main_ascii():
                    \$$      \$$ \$$   \$$ \$$$$$$ \$$   \$$       \$$      \$$ \$$$$$$$$ \$$   \$$  \$$$$$$ 
 -----------------------------------------------------------------------------------------------------------------------
                                 |                                                     |
-                                |   3:< Welcome to MAIN MENU of lockies multitool >:3 |                                                            
+                                |   3:< Welcome to MAIN MENU of lockies multitool >:3 |
                                 |         100 - INSTALL and UPDATE ALL Tools          |
                                 |         t  - ALL Tools Runner")                     |
                                 |         d - Discord Tools runner                    |
@@ -405,7 +440,7 @@ def main_ascii():
 def main():
     clear()
     main_ascii()
-    print("\n                  [1]  - Install Discord Tools = Webhook spammer, Token Validator")
+    print("\n                  [1]  - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator")
     print("                  [2]  - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
     print("                  [3]  - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker")
     print("                  [4]  - Install All tools = All of above")
@@ -414,6 +449,7 @@ def main():
     if option == '1':
         token_validator(run_option='n', return_to_menu=False)
         webhook_mutltitool_download(run_option='n', return_to_menu=False)
+        nitro_gen_download(run_option='n', return_to_menu=False)
         input("Press Enter to return...")
         main()
     elif option == '2':
@@ -551,6 +587,7 @@ def discord_tools_main():
     discord_ascii()
     print("                        [1] - Run Webhook Multitool")
     print("                        [2] - Run Token Validator")
+    print("                        [3] - Run Nitro Generator")
     option = input("Option >> ")
     if option == '1':
         run_option = input("You wanna run the tool? [Y or N] >> ")
@@ -558,6 +595,9 @@ def discord_tools_main():
     elif option == '2':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         token_validator(run_option, Download_option=False)
+    elif option == '3':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        nitro_gen_download(run_option, return_to_menu=False)
     elif option.strip() == 'b':
         print("Taking you to main menu...")
         time.sleep(0.5)
