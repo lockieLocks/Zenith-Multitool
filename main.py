@@ -14,7 +14,6 @@ def clear():
     else:
         os.system('clear')
 
-
 def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
     ip_pinger_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/ip_pinger.py"
     folder_name = "ip_pinger"
@@ -592,8 +591,6 @@ def utility_Tools_main():
         print("Invalid...")
         time.sleep(0.5)
         utility_Tools_main()
-
-
 
 
 def Network_ascii():
