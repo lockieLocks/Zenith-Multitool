@@ -493,7 +493,8 @@ def main_ascii():
 -----------------------------------------------------------------------------------------------------------------------
                                 |                                                     |
                                 |   3:< Welcome to MAIN MENU of lockies multitool >:3 |
-                                |         100 - INSTALL and UPDATE ALL Tools          |
+                                |         404 - FULL WIPE AND REINSTALL               |
+                                |          100 - INSTALL and UPDATE ALL Tools         |
                                 |         t  - ALL Tools Runner")                     |
                                 |         d - Discord Tools runner                    |
                                 |         n - Network Tools runner                    |
@@ -542,6 +543,8 @@ def main():
         network_main()
     elif option == '100':
         update()
+    elif option == '404':
+        full_cleanup()
     elif option == '99':
         print("Peace Out gng...")
         time.sleep(0.5)
