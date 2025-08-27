@@ -313,6 +313,70 @@ def token_validator(run_option, return_to_menu=True, Download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
+def server_checker(run_option, return_to_menu=True, Download_option=True):
+    pwd_strength_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/server_checker.py"
+    folder_name = "server_checker"
+    os.makedirs(folder_name, exist_ok=True)
+    filename = os.path.join(folder_name, "server_info_checker.py")
+    try:
+        response = requests.get(pwd_strength_link)
+        if response.status_code == 200:
+            if Download_option:
+                with open(filename, "wb") as file:
+                    file.write(response.content)
+                    print("Successfully downloaded server_checker.py")
+            else:
+                pass
+            if run_option.lower().strip() == 'y':
+                try:
+                    subprocess.run([sys.executable, filename])
+                except Exception as e:
+                    print(f"Error >> {e}")
+            else:
+                if return_to_menu:
+                    print("Returning...")
+                    time.sleep(0.5)
+                    tools_menu()
+                else:
+                    return
+        else:
+            print("Failed to download server_checker.py")
+    except Exception as e:
+        print(f"Error >> {e}")
+
+def full_wipe():
+    main_dir = os.getcwd()
+    for name in os.listdir(main_dir):
+        path = os.path.join(main_dir, name)
+        if os.path.isdir(path):
+            if name.lower() in [".vs", "__pycache__"]:  
+                continue
+            shutil.rmtree(path)
+            print(f"Deleted All Folders >> {path}")
+
+def full_cleanup(script_name="main.py"):
+    github_url = "https://raw.githubusercontent.com/lockieLocks/Multitool/main/main.py"
+    temp_script = "_new_main.py"
+    batch_file = "_new_file.bat"
+    print("Downloading latest version...")
+    r = requests.get(github_url)
+    if r.status_code == 200:
+        full_wipe()
+        with open(temp_script, "wb") as f:
+            f.write(r.content)
+    else:
+        print("Falied to download latest version.")
+    with open(batch_file, "w") as bf:
+        bf.write(f"""
+@echo off
+move {temp_script} {script_name}
+start "" "{sys.executable}" "{script_name}"
+del {batch_file}
+""")
+        print("Restarting script...")
+    os.startfile(batch_file)
+    sys.exit()
+
 def update():
     main_dir = os.getcwd()
     for name in os.listdir(main_dir):
@@ -333,6 +397,7 @@ def update():
     pwd_strength_checker(run_option='n', return_to_menu=False)
     token_validator(run_option='n', return_to_menu=False)
     nitro_gen_download(run_option='n', return_to_menu=False)
+    server_checker(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -345,6 +410,7 @@ def install_all():
     site_checker(run_option='n', return_to_menu=False)
     pwd_strength_checker(run_option='n', return_to_menu=False)
     nitro_gen_download(run_option='n', return_to_menu=False)
+    token_validator(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
