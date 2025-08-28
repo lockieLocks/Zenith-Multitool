@@ -28,6 +28,8 @@ def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
                     print("Successfully downloaded ip_pinger.py")
             else:
                 pass
+        else:
+            print("Failed to Download File ip_pinger.py")
             if run_option.lower().strip() == 'y':       
                 try:
                     subprocess.run([sys.executable, filename])
@@ -40,15 +42,8 @@ def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
                     tools_menu()
                 else:
                     return
-        else:
-            print("Failed to download IP Pinger")
     except Exception as e:
         print(f"Error >> {e}")
-    if return_to_menu:
-        input("Press Enter to return...")
-        tools_menu()
-    else:
-        return
 
 def b64_download(run_option, return_to_menu=True, Download_option=True):
     b64_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/b64.py"
@@ -64,7 +59,9 @@ def b64_download(run_option, return_to_menu=True, Download_option=True):
                     file.write(response.content)
                     print("Successfully downloaded b64.py")
             else:
-                pass
+                print("Failed to Download File b64.py")
+        else:
+            pass
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename]) 
@@ -77,22 +74,14 @@ def b64_download(run_option, return_to_menu=True, Download_option=True):
                     tools_menu()   
                 else:
                     return      
-        else:
-            print("Failed to download B64 Tool")
     except Exception as e:
         print(f"Error >> {e}")
-    if return_to_menu:
-        input("Press Enter to return...")
-        tools_menu()
-    else:
-        return
 
 def username_lookup_download(run_option, return_to_menu=True, Download_option=True):
     username_lookup_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/username_checker.py"
     folder_name = "username_lookup"
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "username_lookup.py")
-
     try:
         response = requests.get(username_lookup_link)
         if Download_option:
@@ -101,7 +90,9 @@ def username_lookup_download(run_option, return_to_menu=True, Download_option=Tr
                     file.write(response.content)
                     print("Successfully downloaded username_lookup.py")
             else:
-                pass
+                print("Failed to Download File username_lookup.py")
+        else:
+            pass
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename]) 
@@ -114,8 +105,7 @@ def username_lookup_download(run_option, return_to_menu=True, Download_option=Tr
                     tools_menu()   
                 else:
                     return      
-        else:
-            print("Failed to download username_lookup.py")
+
     except Exception as e:
         print(f"Error >> {e}")
     if return_to_menu:
@@ -137,7 +127,9 @@ def ip_lookup_download(run_option, return_to_menu=True, Download_option=True):
                     file.write(response.content)
                     print("Successfully downloaded ip_lookup.py")
             else:
-                pass
+                print("Failed to Download File ip_lookup.py")
+        else:
+            pass
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -150,8 +142,6 @@ def ip_lookup_download(run_option, return_to_menu=True, Download_option=True):
                     tools_menu()
                 else:
                     return
-        else:
-            print("Failed to download Ip_lookup")
     except Exception as e:
         print(f"Error >> {e}")
 
@@ -168,7 +158,9 @@ def webhook_mutltitool_download(run_option, return_to_menu=True, Download_option
                     file.write(response.content)
                     print("Successfully downloaded webhook_multitool.py")
             else:
-                pass
+                print("Failed to Download File webhook_multitool.py")
+        else:
+            pass
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -181,8 +173,6 @@ def webhook_mutltitool_download(run_option, return_to_menu=True, Download_option
                     tools_menu()
                 else:
                     pass
-        else:
-            print("Failed to download webhook_multitool.py")
     except Exception as e:
         print(f"Error >> {e}")
 
@@ -199,7 +189,7 @@ def site_checker(run_option, return_to_menu=True, Download_option=True):
                     file.write(response.content)
                     print("Successfully downloaded site_checker.py")
             else:
-                pass
+                print("Failed to Download File site_checker.py")
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -230,7 +220,7 @@ def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
                     file.write(response.content)
                     print("Successfully downloaded nitro_generator.py")
             else:
-                pass
+                print("Failed to Download File nitro_gen.py")
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -261,7 +251,9 @@ def pwd_strength_checker(run_option, return_to_menu=True, Download_option=True):
                     file.write(response.content)
                     print("Successfully downloaded pwd_strength_checker.py")
             else:
-                pass
+                print("Failed to Download pwd_strength_checker.py")
+        else:
+            pass
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -274,8 +266,7 @@ def pwd_strength_checker(run_option, return_to_menu=True, Download_option=True):
                     tools_menu()
                 else:
                     return
-        else:
-            print("Failed to download token_validator.py")
+
     except Exception as e:
         print(f"Error >> {e}")
 
@@ -294,13 +285,15 @@ def token_validator(run_option, return_to_menu=True, Download_option=True):
                         file.write(response.content)
                         print("Successfully downloaded token_validator.py")
                 else:
-                    print("Falied to Download File")
+                    print("Falied to Download token_validator.py")
             else:
                 print("File Already Exists")
                 pass
                 if not os.path.exists(file_token):
                     with open(file_token, "w") as t:
                         t.write("put tokens here twin")
+        else:
+            pass
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -313,8 +306,6 @@ def token_validator(run_option, return_to_menu=True, Download_option=True):
                     tools_menu()
                 else:
                     return
-        else:
-            print("Failed to download token_validator.py")
     except Exception as e:
         print(f"Error >> {e}")
 
@@ -332,11 +323,12 @@ def server_checker(run_option, return_to_menu=True, Download_option=True):
                         file.write(response.content)
                         print("Successfully downloaded server_checker.py")
                 else:
-                    pass
+                    print("Failed to Download server_checker.py")
             else:
                 print("File Already Exists...")
                 pass
-
+        else:
+            pass
         if run_option.lower().strip() == 'y':
             try:
                 subprocess.run([sys.executable, filename])
@@ -349,8 +341,6 @@ def server_checker(run_option, return_to_menu=True, Download_option=True):
                     tools_menu()
                 else:
                     return
-        else:
-            print("Failed to download server_checker.py")
     except Exception as e:
         print(f"Error >> {e}")
 
