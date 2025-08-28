@@ -21,8 +21,8 @@ def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
     filename = os.path.join(folder_name, "ip_pinger.py")
     try:
         response = requests.get(ip_pinger_link)
-        if response.status_code == 200:
-            if Download_option:
+        if Download_option:
+            if response.status_code == 200:
                 with open(filename, "wb") as file:
                     file.write(response.content)
                     print("Successfully downloaded ip_pinger.py")
@@ -58,8 +58,8 @@ def b64_download(run_option, return_to_menu=True, Download_option=True):
 
     try:
         response = requests.get(b64_link)
-        if response.status_code == 200:
-            if Download_option:
+        if Download_option:
+            if response.status_code == 200:
                 with open(filename, "wb") as file:
                     file.write(response.content)
                     print("Successfully downloaded b64.py")
@@ -95,8 +95,8 @@ def username_lookup_download(run_option, return_to_menu=True, Download_option=Tr
 
     try:
         response = requests.get(username_lookup_link)
-        if response.status_code == 200:
-            if Download_option:
+        if Download_option:
+            if response.status_code == 200:
                 with open(filename, "wb") as file:
                     file.write(response.content)
                     print("Successfully downloaded username_lookup.py")
@@ -131,8 +131,8 @@ def ip_lookup_download(run_option, return_to_menu=True, Download_option=True):
     filename = os.path.join(folder_name, "ip_lookup.py")
     try:
         response = requests.get(ip_lookup_link)
-        if response.status_code == 200:
-            if Download_option:
+        if Download_option:
+            if response.status_code == 200:
                 with open(filename, "wb") as file:
                     file.write(response.content)
                     print("Successfully downloaded ip_lookup.py")
@@ -162,8 +162,8 @@ def webhook_mutltitool_download(run_option, return_to_menu=True, Download_option
     filename = os.path.join(folder_name, "webhook_multitool.py")
     try:
         response = requests.get(webhook_multitool_link)
-        if response.status_code == 200:
-            if Download_option:
+        if Download_option:
+            if response.status_code == 200:
                 with open(filename, "wb") as file:
                     file.write(response.content)
                     print("Successfully downloaded webhook_multitool.py")
@@ -193,8 +193,8 @@ def site_checker(run_option, return_to_menu=True, Download_option=True):
     filename = os.path.join(folder_name, "site_multitool.py")
     try:
         response = requests.get(site_multitool_link)
-        if response.status_code == 200:
-            if Download_option:
+        if Download_option:
+            if response.status_code == 200:
                 with open(filename, "wb") as file:
                     file.write(response.content)
                     print("Successfully downloaded site_checker.py")
@@ -224,8 +224,8 @@ def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
     filename = os.path.join(folder_name, "nitro_gen.py")
     try:
         response = requests.get(site_multitool_link)
-        if response.status_code == 200:
-            if Download_option:
+        if Download_option:
+            if response.status_code == 200:
                 with open(filename, "wb") as file:
                     file.write(response.content)
                     print("Successfully downloaded nitro_generator.py")
@@ -255,8 +255,8 @@ def pwd_strength_checker(run_option, return_to_menu=True, Download_option=True):
     filename = os.path.join(folder_name, "pwd_strength_checker.py")
     try:
         response = requests.get(pwd_strength_link)
-        if response.status_code == 200:
-            if Download_option:
+        if Download_option:
+            if response.status_code == 200:
                 with open(filename, "wb") as file:
                     file.write(response.content)
                     print("Successfully downloaded pwd_strength_checker.py")
@@ -287,11 +287,17 @@ def token_validator(run_option, return_to_menu=True, Download_option=True):
     file_token = os.path.join(folder_name, "tokens.txt")
     try:
         response = requests.get(token_validator_link)
-        if response.status_code == 200:
-            if Download_option:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded token_validator.py")
+        if Download_option:
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded token_validator.py")
+                else:
+                    print("Falied to Download File")
+            else:
+                print("File Already Exists")
+                pass
                 if not os.path.exists(file_token):
                     with open(file_token, "w") as t:
                         t.write("put tokens here twin")
@@ -319,18 +325,23 @@ def server_checker(run_option, return_to_menu=True, Download_option=True):
     filename = os.path.join(folder_name, "server_info_checker.py")
     try:
         response = requests.get(pwd_strength_link)
-        if response.status_code == 200:
-            if Download_option:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded server_checker.py")
+        if Download_option:
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded server_checker.py")
+                else:
+                    pass
             else:
+                print("File Already Exists...")
                 pass
-            if run_option.lower().strip() == 'y':
-                try:
-                    subprocess.run([sys.executable, filename])
-                except Exception as e:
-                    print(f"Error >> {e}")
+
+        if run_option.lower().strip() == 'y':
+            try:
+                subprocess.run([sys.executable, filename])
+            except Exception as e:
+                print(f"Error >> {e}")
             else:
                 if return_to_menu:
                     print("Returning...")
@@ -434,6 +445,7 @@ def tools_menu():
     print("                     [1] - Ip Lookup                    [4] - B64 Tools                       [7] - Webhook Multitool")
     print("                     [2] - IP Pinger                    [5] - Username Lookup                 [8] - Token Validator")               
     print("                     [3] - Site Multitool               [6] - Password Strength Checker       [9] - Nitro Generator")
+    print("                                                                                              [10] - Server Info Checker")
     option = input("Option >> ")
     if option == '1':
         run_option = input("You wanna run the tool? [Y or N] >> ")
@@ -462,6 +474,9 @@ def tools_menu():
     elif option == '9':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         nitro_gen_download(run_option, Download_option=False)
+    elif option == '10':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        server_checker(run_option, Download_option=False)
     elif option == '99':
         update()
     elif option == '404':
@@ -506,7 +521,7 @@ def main_ascii():
 def main():
     clear()
     main_ascii()
-    print("\n                  [1]  - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator")
+    print("\n                  [1]  - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator, Server Info Checker")
     print("                  [2]  - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
     print("                  [3]  - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker")
     print("                  [4]  - Install All tools = All of above")
@@ -516,6 +531,7 @@ def main():
         token_validator(run_option='n', return_to_menu=False)
         webhook_mutltitool_download(run_option='n', return_to_menu=False)
         nitro_gen_download(run_option='n', return_to_menu=False)
+        server_checker(run_option='n', return_to_menu=False)
         input("Press Enter to return...")
         main()
     elif option == '2':
