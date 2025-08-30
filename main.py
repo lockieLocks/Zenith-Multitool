@@ -22,14 +22,18 @@ def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
     try:
         response = requests.get(ip_pinger_link)
         if Download_option:
-            if response.status_code == 200:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded ip_pinger.py")
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded ip_pinger.py")
+                else:
+                    print("Failed to Download File ip_pinger.py")
             else:
+                print("File Already Exists...")
                 pass
         else:
-            print("Failed to Download File ip_pinger.py")
+            pass
             if run_option.lower().strip() == 'y':       
                 try:
                     subprocess.run([sys.executable, filename])
@@ -50,16 +54,19 @@ def b64_download(run_option, return_to_menu=True, Download_option=True):
     folder_name = "base64"
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "b64.py")
-
     try:
         response = requests.get(b64_link)
         if Download_option:
-            if response.status_code == 200:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded b64.py")
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded b64.py")
+                else:
+                    print("Failed to Download File b64.py")
             else:
-                print("Failed to Download File b64.py")
+                print("File Already Exists...")
+                pass
         else:
             pass
             if run_option.lower().strip() == 'y':
@@ -85,12 +92,16 @@ def username_lookup_download(run_option, return_to_menu=True, Download_option=Tr
     try:
         response = requests.get(username_lookup_link)
         if Download_option:
-            if response.status_code == 200:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded username_lookup.py")
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded username_lookup.py")
+                else:
+                    print("Failed to Download File username_lookup.py")
             else:
-                print("Failed to Download File username_lookup.py")
+                print("File Already Exists...")
+                pass
         else:
             pass
             if run_option.lower().strip() == 'y':
@@ -122,12 +133,16 @@ def ip_lookup_download(run_option, return_to_menu=True, Download_option=True):
     try:
         response = requests.get(ip_lookup_link)
         if Download_option:
-            if response.status_code == 200:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded ip_lookup.py")
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded ip_lookup.py")
+                else:
+                    print("Failed to Download File ip_lookup.py")
             else:
-                print("Failed to Download File ip_lookup.py")
+                print("File Already Exists...")
+                pass
         else:
             pass
             if run_option.lower().strip() == 'y':
@@ -153,12 +168,16 @@ def webhook_mutltitool_download(run_option, return_to_menu=True, Download_option
     try:
         response = requests.get(webhook_multitool_link)
         if Download_option:
-            if response.status_code == 200:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded webhook_multitool.py")
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded webhook_multitool.py")
+                else:
+                    print("Failed to Download File webhook_multitool.py")
             else:
-                print("Failed to Download File webhook_multitool.py")
+                print("File Already Exists...")
+                pass
         else:
             pass
             if run_option.lower().strip() == 'y':
@@ -184,12 +203,18 @@ def site_checker(run_option, return_to_menu=True, Download_option=True):
     try:
         response = requests.get(site_multitool_link)
         if Download_option:
-            if response.status_code == 200:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded site_checker.py")
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded site_checker.py")
+                else:
+                    print("Failed to Download File site_checker.py")
             else:
-                print("Failed to Download File site_checker.py")
+                print("File Already Exists...")
+                pass
+        else:
+            pass
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -202,8 +227,6 @@ def site_checker(run_option, return_to_menu=True, Download_option=True):
                     tools_menu()
                 else:
                     return
-        else:
-            print("Failed to download site_checker.py")
     except Exception as e:
         print(f"Error >> {e}")
 
@@ -215,12 +238,18 @@ def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
     try:
         response = requests.get(site_multitool_link)
         if Download_option:
-            if response.status_code == 200:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded nitro_generator.py")
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded nitro_generator.py")
+                else:
+                    print("Failed to Download File nitro_gen.py")
             else:
-                print("Failed to Download File nitro_gen.py")
+                print("File Already Exists...")
+                pass
+        else:
+            pass
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -233,8 +262,6 @@ def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
                     tools_menu()
                 else:
                     return
-        else:
-            print("Failed to download nitro_gen.py")
     except Exception as e:
         print(f"Error >> {e}")
 
@@ -246,12 +273,16 @@ def pwd_strength_checker(run_option, return_to_menu=True, Download_option=True):
     try:
         response = requests.get(pwd_strength_link)
         if Download_option:
-            if response.status_code == 200:
-                with open(filename, "wb") as file:
-                    file.write(response.content)
-                    print("Successfully downloaded pwd_strength_checker.py")
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded pwd_strength_checker.py")
+                else:
+                    print("Failed to Download pwd_strength_checker.py")
             else:
-                print("Failed to Download pwd_strength_checker.py")
+                print("File Already Exists...")
+                pass
         else:
             pass
             if run_option.lower().strip() == 'y':
