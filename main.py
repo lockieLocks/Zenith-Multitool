@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from threading import local
 import requests
 import sys
 import time
@@ -7,12 +8,29 @@ import os
 import subprocess
 from colorama import Fore
 import shutil
+import socket
 
 def clear():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
+
+def get_all_ips():
+    try:
+        public_ip = requests.get("https://api.ipify.org?format=text", timeout=5).text.strip()
+    except:
+        public_ip = "Could not fetch"
+
+    try:
+        hostname = socket.gethostname()
+        local_ip = socket.gethostbyname(hostname)
+    except:
+        hostname = local_ip = "Could not fetch"
+
+    print(f"Public IP >> {public_ip}\nLocal IP >> {local_ip}\nHostname >> {hostname}")
+    input("Press Enter to return...")
+    network_main()
 
 def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
     ip_pinger_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/ip_pinger.py"
@@ -442,6 +460,7 @@ def install_all():
     pwd_strength_checker(run_option='n', return_to_menu=False)
     nitro_gen_download(run_option='n', return_to_menu=False)
     token_validator(run_option='n', return_to_menu=False)
+    server_checker(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -525,18 +544,21 @@ def main_ascii():
                   | $$ \$$$| $$| $$  | $$ _| $$_ | $$ \$$$$      | $$ \$$$| $$| $$_____ | $$ \$$$$| $$__/ $$
                   | $$  \$ | $$| $$  | $$|   $$ \| $$  \$$$      | $$  \$ | $$| $$     \| $$  \$$$ \$$    $$
                    \$$      \$$ \$$   \$$ \$$$$$$ \$$   \$$       \$$      \$$ \$$$$$$$$ \$$   \$$  \$$$$$$ 
+                                                __  _      ___ ___    
+                                                 / |_ |\ |  |   | |_| 
+                                                /_ |_ | \| _|_  | | |  
 -----------------------------------------------------------------------------------------------------------------------
                                 |                                                     |
                                 |   3:< Welcome to MAIN MENU of lockies multitool >:3 |
                                 |         404 - FULL WIPE AND REINSTALL               |
                                 |          100 - INSTALL and UPDATE ALL Tools         |
                                 |         t  - ALL Tools Runner")                     |
+                                -------------------------------------------------------
                                 |         d - Discord Tools runner                    |
                                 |         n - Network Tools runner                    |
                                 |         u - Utillity Tools runner                   |
                                 |                 Have Fun :3                         |
-                                |_____________________________________________________|
-"""
+                                |_____________________________________________________|"""
     print(ascii)
 
 def main():
@@ -655,12 +677,14 @@ def network_main():
     print("                                     [3] - Run Site Multitool")
     option = input("Option >> ")
     if option == '1':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        ip_lookup_download(run_option, Download_option=False)
+        get_all_ips()
     elif option == '2':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        ip_pinger_download(run_option, Download_option=False)
+        ip_lookup_download(run_option, Download_option=False)
     elif option == '3':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        ip_pinger_download(run_option, Download_option=False)
+    elif option == '4':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         site_checker(run_option, Download_option=False)
     elif option == '100':
@@ -681,8 +705,7 @@ def discord_ascii():
 /**    ** /** /////**/**   **/**   /** /**   /**  /**          /**    /**   /**/**   /** /** /////**
 /*******  /** ****** //***** //****** /***   //******          /**    //****** //******  *** ****** 
 ///////   // //////   /////   //////  ///     //////           //      //////   //////  /// //////  
-                                        b - Return to main menu
-"""
+                                        b - Return to main menu"""
     print(discord_ascii)
 
 def discord_tools_main():
@@ -691,6 +714,7 @@ def discord_tools_main():
     print("                        [1] - Run Webhook Multitool")
     print("                        [2] - Run Token Validator")
     print("                        [3] - Run Nitro Generator")
+    print("                        [4] - Run Server Info Checker")
     option = input("Option >> ")
     if option == '1':
         run_option = input("You wanna run the tool? [Y or N] >> ")
@@ -701,6 +725,9 @@ def discord_tools_main():
     elif option == '3':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         nitro_gen_download(run_option, return_to_menu=False)
+    elif option == '4':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        server_checker(run_option, return_to_menu=False)
     elif option.strip() == 'b':
         print("Taking you to main menu...")
         time.sleep(0.5)
