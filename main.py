@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-
-from threading import local
 import requests
 import sys
 import time
@@ -717,9 +715,10 @@ $$ | \$$ |\$$$$$$$\  \$$$$  |\$$$$$\$$$$  |\$$$$$$  |$$ |      $$ | \$$\        
 def network_main():
     clear()
     Network_ascii()
-    print("                                     [1] - Run IP Lookup")
-    print("                                     [2] - Run IP Pinger")
-    print("                                     [3] - Run Site Multitool")
+    print("                                     [1] - Get Your own IP")
+    print("                                     [2] - Run IP Lookup")
+    print("                                     [3] - Run IP Pinger")
+    print("                                     [4] - Run Site Multitool")
     option = input("Option >> ")
     if option == '1':
         get_all_ips()
