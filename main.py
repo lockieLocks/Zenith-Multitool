@@ -33,8 +33,9 @@ def get_all_ips():
     network_main()
 
 def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
-    ip_pinger_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/ip_pinger.py"
-    folder_name = "ip_pinger"
+    ip_pinger_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/ip_pinger/ip_pinger.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "ip_pinger")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "ip_pinger.py")
     try:
@@ -68,8 +69,9 @@ def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def b64_download(run_option, return_to_menu=True, Download_option=True):
-    b64_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/b64.py"
-    folder_name = "base64"
+    b64_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/base64/b64.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "base64")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "b64.py")
     try:
@@ -103,8 +105,9 @@ def b64_download(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def username_lookup_download(run_option, return_to_menu=True, Download_option=True):
-    username_lookup_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/username_checker.py"
-    folder_name = "username_lookup"
+    username_lookup_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/username_lookup/username_lookup.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "username_lookup")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "username_lookup.py")
     try:
@@ -116,7 +119,7 @@ def username_lookup_download(run_option, return_to_menu=True, Download_option=Tr
                         file.write(response.content)
                         print("Successfully downloaded username_lookup.py")
                 else:
-                    print("Failed to Download File username_lookup.py")
+                    print("Failed to Download username_lookup.py")
             else:
                 print("File Already Exists...")
                 pass
@@ -144,8 +147,9 @@ def username_lookup_download(run_option, return_to_menu=True, Download_option=Tr
         return
 
 def ip_lookup_download(run_option, return_to_menu=True, Download_option=True):
-    ip_lookup_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/ip_lookup.py"
-    folder_name = "ip_lookup"
+    ip_lookup_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/ip_lookup/ip_lookup.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "ip_lookup")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "ip_lookup.py")
     try:
@@ -179,8 +183,9 @@ def ip_lookup_download(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def webhook_mutltitool_download(run_option, return_to_menu=True, Download_option=True):
-    webhook_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/webhook_multitool.py"
-    folder_name = "webhook_multitool"
+    webhook_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/webhook_multitool/webhook_multitool.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "webhook_multitool")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "webhook_multitool.py")
     try:
@@ -214,8 +219,9 @@ def webhook_mutltitool_download(run_option, return_to_menu=True, Download_option
         print(f"Error >> {e}")
 
 def site_checker(run_option, return_to_menu=True, Download_option=True):
-    site_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/site_checker.py"
-    folder_name = "site_multitool"
+    site_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/site_multitool/site_multitool.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "site_multitool")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "site_multitool.py")
     try:
@@ -227,7 +233,7 @@ def site_checker(run_option, return_to_menu=True, Download_option=True):
                         file.write(response.content)
                         print("Successfully downloaded site_checker.py")
                 else:
-                    print("Failed to Download File site_checker.py")
+                    print("Failed to Download site_checker.py")
             else:
                 print("File Already Exists...")
                 pass
@@ -249,8 +255,9 @@ def site_checker(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
-    site_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/nitro_gen.py"
-    folder_name = "nitro_gen"
+    site_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/nitro_generator/nitro_gen.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "nitro_generator")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "nitro_gen.py")
     try:
@@ -284,8 +291,9 @@ def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def pwd_strength_checker(run_option, return_to_menu=True, Download_option=True):
-    pwd_strength_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/pwd_checker.py"
-    folder_name = "password_strength_checker"
+    pwd_strength_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/password_strength_checker.py/pwd_strength_checker.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "password_strength_checker.py")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "pwd_strength_checker.py")
     try:
@@ -320,8 +328,9 @@ def pwd_strength_checker(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def token_validator(run_option, return_to_menu=True, Download_option=True):
-    token_validator_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/token_validator.py"
-    folder_name = "token_validator"
+    token_validator_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/token_validator/token_validator.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "token_validator")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "token_validator.py")
     file_token = os.path.join(folder_name, "tokens.txt")
@@ -359,12 +368,13 @@ def token_validator(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def server_checker(run_option, return_to_menu=True, Download_option=True):
-    pwd_strength_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/server_checker.py"
-    folder_name = "server_checker"
+    server_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/server_checker/server_checker.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "server_checker")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "server_info_checker.py")
     try:
-        response = requests.get(pwd_strength_link)
+        response = requests.get(server_checker_link)
         if Download_option:
             if not os.path.exists(filename):
                 if response.status_code == 200:
@@ -393,12 +403,47 @@ def server_checker(run_option, return_to_menu=True, Download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
+def url_shortener(run_option, return_to_menu=True, Download_option=True):
+    url_shortener_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/url_shortener/url_shortener.py"
+    folder_name = "url_shortener"
+    os.makedirs(folder_name, exist_ok=True)
+    filename = os.path.join(folder_name, "url_shortener.py")
+    try:
+        response = requests.get(url_shortener_link)
+        if Download_option:
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded url_shortener.py")
+                else:
+                    print("Failed to Download url_shortener.py")
+            else:
+                print("File Already Exists...")
+                pass
+        else:
+            pass
+        if run_option.lower().strip() == 'y':
+            try:
+                subprocess.run([sys.executable, filename])
+            except Exception as e:
+                print(f"Error >> {e}")
+            else:
+                if return_to_menu:
+                    print("Returning...")
+                    time.sleep(0.5)
+                    tools_menu()
+                else:
+                    return
+    except Exception as e:
+        print(f"Error >> {e}")
+
 def full_wipe():
     main_dir = os.getcwd()
     for name in os.listdir(main_dir):
         path = os.path.join(main_dir, name)
         if os.path.isdir(path):
-            if name.lower() in [".vs", "__pycache__"]:  
+            if name.lower() in [".vs", "__pycache__", "main.py", ".git", ".github"]:  
                 continue
             shutil.rmtree(path)
             print(f"Deleted All Folders >> {path}")
@@ -431,7 +476,7 @@ def update():
     for name in os.listdir(main_dir):
         path = os.path.join(main_dir, name)
         if os.path.isdir(path):
-            if name.lower() in [".vs", "__pycache__"]:  
+            if name.lower() in [".vs", "__pycache__", ".git", ".github"]:  
                 continue
             shutil.rmtree(path)
             print(f"Deleted All Folders >> {path}")
