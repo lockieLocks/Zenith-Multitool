@@ -27,8 +27,6 @@ def get_all_ips():
         hostname = local_ip = "Could not fetch"
 
     print(f"Public IP >> {public_ip}\nLocal IP >> {local_ip}\nHostname >> {hostname}")
-    input("Press Enter to return...")
-    network_main()
 
 def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
     ip_pinger_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/ip_pinger/ip_pinger.py"
@@ -366,7 +364,7 @@ def token_validator(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def server_checker(run_option, return_to_menu=True, Download_option=True):
-    server_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/server_checker/server_checker.py"
+    server_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/server_checker/server_info_checker.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "server_checker")
     os.makedirs(folder_name, exist_ok=True)
@@ -490,6 +488,7 @@ def update():
     token_validator(run_option='n', return_to_menu=False)
     nitro_gen_download(run_option='n', return_to_menu=False)
     server_checker(run_option='n', return_to_menu=False)
+    url_shortener(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -504,6 +503,7 @@ def install_all():
     nitro_gen_download(run_option='n', return_to_menu=False)
     token_validator(run_option='n', return_to_menu=False)
     server_checker(run_option='n', return_to_menu=False)
+    url_shortener(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -525,39 +525,46 @@ def tools_menu():
     clear()
     tools_ascii()
     print("                [------Network Tools------]          [------Utility Tools------]             [------Discord Tools------]")
-    print("                     [1] - Ip Lookup                    [4] - B64 Tools                       [7] - Webhook Multitool")
-    print("                     [2] - IP Pinger                    [5] - Username Lookup                 [8] - Token Validator")               
-    print("                     [3] - Site Multitool               [6] - Password Strength Checker       [9] - Nitro Generator")
-    print("                                                                                              [10] - Server Info Checker")
+    print("                     [1] - Grab Your Own IP             [5] - B64 Tools                       [9] - Webhook Multitool")
+    print("                     [2] - IP Lookup                    [6] - Username Lookup                 [10] - Token Validator")               
+    print("                     [3] - IP Pinger                    [7] - Password Strength Checker       [11] - Nitro Generator")
+    print("                     [4] - Site Multitool               [8] - URL Shortener                   [12] - Server Info Checker")
     option = input("Option >> ")
     if option == '1':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        ip_lookup_download(run_option, Download_option=False)
+        get_all_ips()
+        input("Press Enter to Return...")
+        tools_menu()
     elif option == '2':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        ip_pinger_download(run_option, Download_option=False)
+        ip_lookup_download(run_option, Download_option=False)
     elif option == '3':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        site_checker(run_option, Download_option=False)
+        ip_pinger_download(run_option, Download_option=False)
     elif option == '4':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        b64_download(run_option, Download_option=False)
+        site_checker(run_option, Download_option=False)
     elif option == '5':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        username_lookup_download(run_option, Download_option=False)
+        b64_download(run_option, Download_option=False)
     elif option == '6':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        pwd_strength_checker(run_option, Download_option=False)
+        username_lookup_download(run_option, Download_option=False)
     elif option == '7':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        webhook_mutltitool_download(run_option, Download_option=False)
+        pwd_strength_checker(run_option, Download_option=False)
     elif option == '8':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        token_validator(run_option, Download_option=False)
+        url_shortener(run_option, Download_option=False)
+    elif option == '8':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        webhook_mutltitool_download(run_option, Download_option=False)
     elif option == '9':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        nitro_gen_download(run_option, Download_option=False)
+        token_validator(run_option, Download_option=False)
     elif option == '10':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        nitro_gen_download(run_option, Download_option=False)
+    elif option == '11':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         server_checker(run_option, Download_option=False)
     elif option == '99':
@@ -715,13 +722,15 @@ $$ | \$$ |\$$$$$$$\  \$$$$  |\$$$$$\$$$$  |\$$$$$$  |$$ |      $$ | \$$\        
 def network_main():
     clear()
     Network_ascii()
-    print("                                     [1] - Get Your own IP")
+    print("                                     [1] - Grap Your own IPs")
     print("                                     [2] - Run IP Lookup")
     print("                                     [3] - Run IP Pinger")
     print("                                     [4] - Run Site Multitool")
     option = input("Option >> ")
     if option == '1':
         get_all_ips()
+        input("Press Enter to return...")
+        network_main()
     elif option == '2':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         ip_lookup_download(run_option, Download_option=False)
