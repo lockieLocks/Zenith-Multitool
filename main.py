@@ -401,7 +401,8 @@ def server_checker(run_option, return_to_menu=True, Download_option=True):
 
 def url_shortener(run_option, return_to_menu=True, Download_option=True):
     url_shortener_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/url_shortener/url_shortener.py"
-    folder_name = "url_shortener"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "url_shortener")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "url_shortener.py")
     try:
