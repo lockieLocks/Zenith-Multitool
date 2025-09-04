@@ -28,6 +28,7 @@ def get_all_ips():
 
     print(f"Public IP >> {public_ip}\nLocal IP >> {local_ip}\nHostname >> {hostname}")
 
+
 def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
     ip_pinger_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/ip_pinger/ip_pinger.py"
     tools_folder = "Tools"
@@ -251,13 +252,13 @@ def site_checker(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
-    site_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/nitro_generator/nitro_gen.py"
+    nitro_gen_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/nitro_generator/nitro_gen.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "nitro_generator")
     os.makedirs(folder_name, exist_ok=True)
     filename = os.path.join(folder_name, "nitro_gen.py")
     try:
-        response = requests.get(site_multitool_link)
+        response = requests.get(nitro_gen_link)
         if Download_option:
             if not os.path.exists(filename):
                 if response.status_code == 200:
@@ -435,6 +436,42 @@ def url_shortener(run_option, return_to_menu=True, Download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
+def token_info_checker(run_option, return_to_menu=True, Download_option=True):
+    token_info_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/token_info_checker/token_info_checker.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "token_info_checker")
+    os.makedirs(folder_name, exist_ok=True)
+    filename = os.path.join(folder_name, "token_info_checker.py")
+    try:
+        response = requests.get(token_info_checker_link)
+        if Download_option:
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded token_info_checker.py")
+                else:
+                    print("Failed to Download token_info_checker.py")
+            else:
+                print("File Already Exists...")
+                pass
+        else:
+            pass
+        if run_option.lower().strip() == 'y':
+            try:
+                subprocess.run([sys.executable, filename])
+            except Exception as e:
+                print(f"Error >> {e}")
+            else:
+                if return_to_menu:
+                    print("Returning...")
+                    time.sleep(0.5)
+                    tools_menu()
+                else:
+                    return
+    except Exception as e:
+        print(f"Error >> {e}")
+
 def full_wipe():
     main_dir = os.getcwd()
     for name in os.listdir(main_dir):
@@ -490,6 +527,7 @@ def update():
     nitro_gen_download(run_option='n', return_to_menu=False)
     server_checker(run_option='n', return_to_menu=False)
     url_shortener(run_option='n', return_to_menu=False)
+    token_info_checker(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -505,6 +543,7 @@ def install_all():
     token_validator(run_option='n', return_to_menu=False)
     server_checker(run_option='n', return_to_menu=False)
     url_shortener(run_option='n', return_to_menu=False)
+    token_info_checker(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
