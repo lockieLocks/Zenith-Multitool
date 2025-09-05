@@ -569,6 +569,7 @@ def tools_menu():
     print("                     [2] - IP Lookup                    [6] - Username Lookup                 [10] - Token Validator")               
     print("                     [3] - IP Pinger                    [7] - Password Strength Checker       [11] - Nitro Generator")
     print("                     [4] - Site Multitool               [8] - URL Shortener                   [12] - Server Info Checker")
+    print("                                                                                              [13] - Token Info Checker")
     option = input("Option >> ")
     if option == '1':
         get_all_ips()
@@ -654,9 +655,9 @@ def main_ascii():
 def main():
     clear()
     main_ascii()
-    print("\n                  [1]  - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator, Server Info Checker")
+    print("\n                  [1]  - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator, Server Info Checker, Token Info Checker")
     print("                  [2]  - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
-    print("                  [3]  - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker")
+    print("                  [3]  - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker, Url Shortener")
     print("                  [4]  - Install All tools = All of above")
     print("                  [99] - Exit")
     option = input("Option >> ")
@@ -665,6 +666,7 @@ def main():
         webhook_mutltitool_download(run_option='n', return_to_menu=False)
         nitro_gen_download(run_option='n', return_to_menu=False)
         server_checker(run_option='n', return_to_menu=False)
+        token_info_checker(run_option='n', return_to_menu=False)
         input("Press Enter to return...")
         main()
     elif option == '2':
@@ -677,6 +679,7 @@ def main():
         username_lookup_download(run_option='n', return_to_menu=False)
         b64_download(run_option='n', return_to_menu=False)
         pwd_strength_checker(run_option='n', return_to_menu=False)
+        url_shortener(run_option='n', return_to_menu=False)
         input("Press Enter to return...")
         main()
     elif option == '4':
@@ -808,19 +811,23 @@ def discord_tools_main():
     print("                        [2] - Run Token Validator")
     print("                        [3] - Run Nitro Generator")
     print("                        [4] - Run Server Info Checker")
+    print("                        [5] - Run Token Info Checker")
     option = input("Option >> ")
     if option == '1':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        webhook_mutltitool_download(run_option, Download_option=False)
+        webhook_mutltitool_download(run_option, Download_option=False, return_to_menu=False)
     elif option == '2':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        token_validator(run_option, Download_option=False)
+        token_validator(run_option, Download_option=False, return_to_menu=False)
     elif option == '3':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        nitro_gen_download(run_option, return_to_menu=False)
+        nitro_gen_download(run_option, Download_option=False, return_to_menu=False)
     elif option == '4':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        server_checker(run_option, return_to_menu=False)
+        server_checker(run_option, Download_option=False, return_to_menu=False)
+    elif option == '5':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        token_info_checker(run_option, Download_option=False, return_to_menu=False)
     elif option.strip() == 'b':
         print("Taking you to main menu...")
         time.sleep(0.5)
