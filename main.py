@@ -568,7 +568,6 @@ def update():
     server_checker(run_option='n', return_to_menu=False)
     url_shortener(run_option='n', return_to_menu=False)
     token_info_checker(run_option='n', return_to_menu=False)
-    file_shredder_download(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -585,7 +584,6 @@ def install_all():
     server_checker(run_option='n', return_to_menu=False)
     url_shortener(run_option='n', return_to_menu=False)
     token_info_checker(run_option='n', return_to_menu=False)
-    file_shredder_download(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -703,11 +701,11 @@ def main_ascii():
 def main():
     clear()
     main_ascii()
-    print("\n                  [1]  - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator, Server Info Checker, Token Info Checker")
-    print("                  [2]  - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
-    print("                  [3]  - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker, Url Shortener, File Shredder")
-    print("                  [4]  - Install All tools = All of above")
-    print("                  [99] - Exit")
+    print("\n[1] - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator, Server Info Checker, Token Info Checker")
+    print("[2] - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
+    print("[3] - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker, Url Shortener, File Shredder")
+    print("[4] - Install All tools = All of above")
+    print("[99] - Exit")
     option = input("Option >> ")
     if option == '1':
         token_validator(run_option='n', return_to_menu=False)
