@@ -472,6 +472,46 @@ def token_info_checker(run_option, return_to_menu=True, Download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
+def file_shredder_download(run_option, return_to_menu=True, Download_option=True):
+    file_shredder_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/file_shredder/file_shredder.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "file_shredder")
+    os.makedirs(folder_name, exist_ok=True)
+    filename = os.path.join(folder_name, "file_shredder.py")
+    file_token = os.path.join(folder_name, "shred_list.txt")
+    try:
+        response = requests.get(file_shredder_link)
+        if Download_option:
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded file_shredder.py")
+                else:
+                    print("Falied to Download file_shredder.py")
+            else:
+                print("File Already Exists")
+                pass
+                if not os.path.exists(file_token):
+                    with open(file_token, "w") as t:
+                        t.write("put file paths here twin")
+        else:
+            pass
+            if run_option.lower().strip() == 'y':
+                try:
+                    subprocess.run([sys.executable, filename])
+                except Exception as e:
+                    print(f"Error >> {e}")
+            else:
+                if return_to_menu:
+                    print("Returning...")
+                    time.sleep(0.5)
+                    tools_menu()
+                else:
+                    return
+    except Exception as e:
+        print(f"Error >> {e}")
+
 def full_wipe():
     main_dir = os.getcwd()
     for name in os.listdir(main_dir):
