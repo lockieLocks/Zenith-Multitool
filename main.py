@@ -30,7 +30,7 @@ def get_all_ips():
 
 
 def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
-    ip_pinger_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/ip_pinger/ip_pinger.py"
+    ip_pinger_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/ip_pinger/ip_pinger.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "ip_pinger")
     os.makedirs(folder_name, exist_ok=True)
@@ -66,7 +66,7 @@ def ip_pinger_download(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def b64_download(run_option, return_to_menu=True, Download_option=True):
-    b64_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/base64/b64.py"
+    b64_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/base64/b64.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "base64")
     os.makedirs(folder_name, exist_ok=True)
@@ -102,7 +102,7 @@ def b64_download(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def username_lookup_download(run_option, return_to_menu=True, Download_option=True):
-    username_lookup_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/username_lookup/username_lookup.py"
+    username_lookup_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/username_lookup/username_lookup.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "username_lookup")
     os.makedirs(folder_name, exist_ok=True)
@@ -144,7 +144,7 @@ def username_lookup_download(run_option, return_to_menu=True, Download_option=Tr
         return
 
 def ip_lookup_download(run_option, return_to_menu=True, Download_option=True):
-    ip_lookup_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/ip_lookup/ip_lookup.py"
+    ip_lookup_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/ip_lookup/ip_lookup.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "ip_lookup")
     os.makedirs(folder_name, exist_ok=True)
@@ -180,7 +180,7 @@ def ip_lookup_download(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def webhook_mutltitool_download(run_option, return_to_menu=True, Download_option=True):
-    webhook_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/webhook_multitool/webhook_multitool.py"
+    webhook_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/webhook_multitool/webhook_multitool.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "webhook_multitool")
     os.makedirs(folder_name, exist_ok=True)
@@ -216,7 +216,7 @@ def webhook_mutltitool_download(run_option, return_to_menu=True, Download_option
         print(f"Error >> {e}")
 
 def site_checker(run_option, return_to_menu=True, Download_option=True):
-    site_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/site_multitool/site_multitool.py"
+    site_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/site_multitool/site_multitool.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "site_multitool")
     os.makedirs(folder_name, exist_ok=True)
@@ -252,7 +252,7 @@ def site_checker(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
-    nitro_gen_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/nitro_generator/nitro_gen.py"
+    nitro_gen_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/nitro_generator/nitro_gen.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "nitro_generator")
     os.makedirs(folder_name, exist_ok=True)
@@ -288,7 +288,7 @@ def nitro_gen_download(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def pwd_strength_checker(run_option, return_to_menu=True, Download_option=True):
-    pwd_strength_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/password_strength_checker.py/pwd_strength_checker.py"
+    pwd_strength_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/password_strength_checker.py/pwd_strength_checker.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "password_strength_checker.py")
     os.makedirs(folder_name, exist_ok=True)
@@ -325,7 +325,7 @@ def pwd_strength_checker(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def token_validator(run_option, return_to_menu=True, Download_option=True):
-    token_validator_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/token_validator/token_validator.py"
+    token_validator_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/token_validator/token_validator.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "token_validator")
     os.makedirs(folder_name, exist_ok=True)
@@ -365,7 +365,7 @@ def token_validator(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def server_checker(run_option, return_to_menu=True, Download_option=True):
-    server_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/server_checker/server_info_checker.py"
+    server_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/server_checker/server_info_checker.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "server_checker")
     os.makedirs(folder_name, exist_ok=True)
@@ -401,7 +401,7 @@ def server_checker(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def url_shortener(run_option, return_to_menu=True, Download_option=True):
-    url_shortener_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/url_shortener/url_shortener.py"
+    url_shortener_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/url_shortener/url_shortener.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "url_shortener")
     os.makedirs(folder_name, exist_ok=True)
@@ -437,7 +437,7 @@ def url_shortener(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def token_info_checker(run_option, return_to_menu=True, Download_option=True):
-    token_info_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/token_info_checker/token_info_checker.py"
+    token_info_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/token_info_checker/token_info_checker.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "token_info_checker")
     os.makedirs(folder_name, exist_ok=True)
@@ -473,7 +473,7 @@ def token_info_checker(run_option, return_to_menu=True, Download_option=True):
         print(f"Error >> {e}")
 
 def file_shredder_download(run_option, return_to_menu=True, Download_option=True):
-    file_shredder_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/Tools/file_shredder/file_shredder.py"
+    file_shredder_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/file_shredder/file_shredder.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "file_shredder")
     os.makedirs(folder_name, exist_ok=True)
@@ -605,64 +605,70 @@ def tools_menu():
     clear()
     tools_ascii()
     print("                [------Network Tools------]          [------Utility Tools------]             [------Discord Tools------]")
-    print("                     [1] - Grab Your Own IP             [5] - B64 Tools                       [9] - Webhook Multitool")
-    print("                     [2] - IP Lookup                    [6] - Username Lookup                 [10] - Token Validator")               
-    print("                     [3] - IP Pinger                    [7] - Password Strength Checker       [11] - Nitro Generator")
-    print("                     [4] - Site Multitool               [8] - URL Shortener                   [12] - Server Info Checker")
-    print("                                                                                              [13] - Token Info Checker")
+    print("                     [1] - Grab Your Own IP             [5] - B64 Tools                       [10] - Webhook Multitool")
+    print("                     [2] - IP Lookup                    [6] - Username Lookup                 [11] - Token Validator")               
+    print("                     [3] - IP Pinger                    [7] - Password Strength Checker       [12] - Nitro Generator")
+    print("                     [4] - Site Multitool               [8] - URL Shortener                   [13] - Server Info Checker")
+    print("                                                        [9] - File Shredder                   [14] - Token Info Checker")
     option = input("Option >> ")
     if option == '1':
         get_all_ips()
-        input("Press Enter to Return...")
-        tools_menu()
+
     elif option == '2':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         ip_lookup_download(run_option, Download_option=False)
+
     elif option == '3':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         ip_pinger_download(run_option, Download_option=False)
+
     elif option == '4':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         site_checker(run_option, Download_option=False)
+
     elif option == '5':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         b64_download(run_option, Download_option=False)
+
     elif option == '6':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         username_lookup_download(run_option, Download_option=False)
+
     elif option == '7':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         pwd_strength_checker(run_option, Download_option=False)
+
     elif option == '8':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         url_shortener(run_option, Download_option=False)
-    elif option == '8':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        webhook_mutltitool_download(run_option, Download_option=False)
+
     elif option == '9':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        token_validator(run_option, Download_option=False)
+        file_shredder_download(run_option, Download_option=False)
+
     elif option == '10':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        nitro_gen_download(run_option, Download_option=False)
+        webhook_mutltitool_download(run_option, Download_option=False)
+
     elif option == '11':
         run_option = input("You wanna run the tool? [Y or N] >> ")
+        token_validator(run_option, Download_option=False)
+
+    elif option == '12':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        nitro_gen_download(run_option, Download_option=False)
+
+    elif option == '13':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
         server_checker(run_option, Download_option=False)
-    elif option == '99':
-        update()
-    elif option == '404':
-        print("Returning...")
-        time.sleep(0.5)
-        sys.exit()
-    elif option.lower().strip() == 'b':
-        print("Returning to main menu...")
-        time.sleep(0.5)
-        main()
-    else:
-        print("Invalid Option...")
-        time.sleep(0.5)
-        clear()
-        tools_menu()
+
+    elif option == '14':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        token_info_checker(run_option, Download_option=False)
+
+
+    input("Press Enter to Return...")
+    tools_menu()
 
 def main_ascii():
     ascii = f"""  {Fore.LIGHTMAGENTA_EX}
@@ -697,7 +703,7 @@ def main():
     main_ascii()
     print("\n                  [1]  - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator, Server Info Checker, Token Info Checker")
     print("                  [2]  - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
-    print("                  [3]  - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker, Url Shortener")
+    print("                  [3]  - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker, Url Shortener, File Shredder")
     print("                  [4]  - Install All tools = All of above")
     print("                  [99] - Exit")
     option = input("Option >> ")
@@ -709,12 +715,14 @@ def main():
         token_info_checker(run_option='n', return_to_menu=False)
         input("Press Enter to return...")
         main()
+
     elif option == '2':
         ip_lookup_download(run_option='n', return_to_menu=False)
         ip_pinger_download(run_option='n', return_to_menu=False)
         site_checker(run_option='n', return_to_menu=False)
         input("Press Enter to return...")
         main()
+
     elif option == '3':
         username_lookup_download(run_option='n', return_to_menu=False)
         b64_download(run_option='n', return_to_menu=False)
@@ -722,24 +730,33 @@ def main():
         url_shortener(run_option='n', return_to_menu=False)
         input("Press Enter to return...")
         main()
+
     elif option == '4':
         install_all()
+
     elif option.lower().strip() == 't':
         tools_menu()
+
     elif option.lower().strip() == 'd':
         discord_tools_main()
+
     elif option.lower().strip() == 'u':
         utility_Tools_main()
+
     elif option.lower().strip() == 'n':
         network_main()
+
     elif option == '100':
         update()
+
     elif option == '404':
         full_cleanup()
+
     elif option == '99':
         print("Peace Out gng...")
         time.sleep(0.5)
         sys.exit()
+
     else:
         print("Returning")
         time.sleep(0.5)
@@ -766,16 +783,24 @@ def utility_Tools_main():
     print("                 [1] - Run Username Lookup")
     print("                 [2] - Run B64 Multitool")
     print("                 [3] - Run Password Strength Checker")
+    print("                 [4] - Run File Shredder")
     option = input("Option >> ")
     if option == '1':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         username_lookup_download(run_option, Download_option=False)
+
     elif option == '2':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         b64_download(run_option, Download_option=False)
+
     elif option == '3':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         pwd_strength_checker(run_option, Download_option=False)
+
+    elif option == '4':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        file_shredder_download(run_option, Download_option=False)
+
     elif option == '100':
         print("Returning to main menu...")
         main()
@@ -814,15 +839,19 @@ def network_main():
         get_all_ips()
         input("Press Enter to return...")
         network_main()
+
     elif option == '2':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         ip_lookup_download(run_option, Download_option=False)
+
     elif option == '3':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         ip_pinger_download(run_option, Download_option=False)
+
     elif option == '4':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         site_checker(run_option, Download_option=False)
+
     elif option == '100':
         main()
     else:
@@ -856,22 +885,28 @@ def discord_tools_main():
     if option == '1':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         webhook_mutltitool_download(run_option, Download_option=False, return_to_menu=False)
+
     elif option == '2':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         token_validator(run_option, Download_option=False, return_to_menu=False)
+
     elif option == '3':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         nitro_gen_download(run_option, Download_option=False, return_to_menu=False)
+
     elif option == '4':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         server_checker(run_option, Download_option=False, return_to_menu=False)
+
     elif option == '5':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         token_info_checker(run_option, Download_option=False, return_to_menu=False)
+
     elif option.strip() == 'b':
         print("Taking you to main menu...")
         time.sleep(0.5)
         main()
+
     else:
         print("Invalid...")
         time.sleep(0.5)
