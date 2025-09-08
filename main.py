@@ -568,6 +568,7 @@ def update():
     server_checker(run_option='n', return_to_menu=False)
     url_shortener(run_option='n', return_to_menu=False)
     token_info_checker(run_option='n', return_to_menu=False)
+    file_shredder_download(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
@@ -584,6 +585,7 @@ def install_all():
     server_checker(run_option='n', return_to_menu=False)
     url_shortener(run_option='n', return_to_menu=False)
     token_info_checker(run_option='n', return_to_menu=False)
+    file_shredder_download(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
