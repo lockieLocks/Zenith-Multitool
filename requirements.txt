@@ -1,0 +1,11 @@
+random
+requests
+sys
+time
+os
+subprocess
+colorama
+shutil
+socket
+platform
+discord
