@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import random
+
 import requests
 import sys
 import time
@@ -7,6 +9,8 @@ import subprocess
 from colorama import Fore
 import shutil
 import socket
+import platform
+
 
 def clear():
     if os.name == 'nt':
@@ -499,6 +503,14 @@ def file_shredder_download(run_option, return_to_menu=True, download_option=True
                         t.write("put file paths here twin")
         else:
             pass
+        if not os.path.exists(filename):
+            print("\nFile Doesn't Exist...")
+            print()
+            download_input = input("Would you like to download it now? [Y or N] >> ")
+            if download_input.lower().strip() == 'y':
+                file_shredder_download(run_option='y', download_option=True)
+            else:
+                pass
             if run_option.lower().strip() == 'y':
                 try:
                     subprocess.run([sys.executable, filename])
@@ -513,6 +525,24 @@ def file_shredder_download(run_option, return_to_menu=True, download_option=True
                     return
     except Exception as e:
         print(f"Error >> {e}")
+
+def get_pc_info():
+    number = random.randint(3, 5)
+    for i in range(number):
+        print(f"\rGetting PC Info{'.' * (i+1)}", end="", flush=True)
+        time.sleep(0.5)
+    print()
+    print(f"\nSystem Info >> {platform.system()}")
+    print(f"Machine Info >> {platform.machine()}")
+    print(f"Processor Info >> {platform.processor()}")
+    print(f"Release Info >> {platform.release()}")
+    print(f"Version Info >> {platform.version()}")
+    print(f"Platform Info >> {platform.platform()}")
+    print(f"Architecture Info >> {platform.architecture()}")
+    print(f"Node Info >> {platform.node()}")
+    print(f"Processor Info >> {platform.processor()}")
+    print(f"Python Version Info >> {platform.python_version()}")
+    input("\nPress Enter to return...")
 
 def full_wipe():
     main_dir = os.getcwd()
@@ -577,28 +607,45 @@ def install_all():
     tools_menu()
 
 def tools_ascii():
-    ascii_art = f""" {Fore.RED}
-
-                             ______          __  ___                        
-                            /_  __/__  ___  / / / _ \__ _____  ___  ___ ____
-                             / / / _ \/ _ \/ / / , _/ // / _ \/ _ \/ -_) __/
-                            /_/  \___/\___/_/ /_/|_|\_,_/_//_/_//_/\__/_/                                                   
-====================================================================================================
-                                   Press b to return to main menu  
-                                   Press 99 to Install and Update all tools
-                                   Press 404 to Exit
+    ascii_art = f""" {Fore.RED}                                                                                                                                        
+                                 ,;L.                                                        t#,         t#,                           .
+                               f#i EW:        ,ft t           .    .                        ;##W.       ;##W.             i           ;W
+                             .E#t  E##;       t#E Ej GEEEEEEELDi   Dt           GEEEEEEEL  :#L:WE      :#L:WE            LE          f#E
+       ,##############Wf.   i#W,   E###t      t#E E#,,;;L#K;;.E#i  E#i          ,;;L#K;;. .KG  ,#D    .KG  ,#D          L#E        .E#f 
+        ........jW##Wt     L#D.    E#fE#f     t#E E#t   t#E   E#t  E#t             t#E    EE    ;#f   EE    ;#f        G#W.       iWW;  
+              tW##Kt     :K#Wfff;  E#t D#G    t#E E#t   t#E   E#t  E#t             t#E   f#.     t#i f#.     t#i      D#K.       L##Lffi
+            tW##E;       i##WLLLLt E#t  f#E.  t#E E#t   t#E   E########f.          t#E   :#G     GK  :#G     GK      E#K.       tLLG##L 
+          tW##E;          .E#L     E#t   t#K: 
+          t#E E#t   t#E   E#j..K#j...          t#E    ;#L   LW.   ;#L   LW.    .E#E.          ,W#i  
+       .fW##D,              f#E:   E#t    ;#W,t#E E#t   t#E   E#t  E#t             t#E     t#f f#:     t#f f#:    .K#E           j#E.   
+     .f###D,                 ,WW;  E#t     :K#D#E E#t   t#E   E#t  E#t             t#E      f#D#;       f#D#;    .K#D          .D#j     
+   .f####Gfffffffffff;        .D#; E#t      .E##E E#t   t#E   f#t  f#t             t#E       G#t         G#t    .W#G          ,WK,      
+  .fLLLLLLLLLLLLLLLLLi          tt ..         G#E E#t    fE    ii   ii              fE        t           t    :W##########Wt EG.       
+                                               fE ,;.     :                          :                         :,,,,,,,,,,,,,.,         
+===================================================================================================================================================
+                               ||    Press b to return to main menu           ||
+                               ||    Press 99 to Install and Update all tools ||
+                               ||    Press 404 to Exit                        ||
+                 ==============||_____________________________________________||=======================   
+                 ||            Step 1                    ||            Step 2                        ||
+                 || Press * To run setup.py (IMPORTANT)  ||     Press ! to Join the Discord Server   ||
+                 ========================================||============================================
+                 ||                                      ||                                          ||
+                 ||                                      ||                                          ||
+                 ||                                      ||                                          ||
+        [------Network Tools------]          [------Utility Tools------]             [------Discord Tools------]
+            [1] - Grab Your Own IP             [5] - B64 Tools                       [11] - Webhook Multitool
+            [2] - IP Lookup                    [6] - Username Lookup                 [12] - Token Validator
+            [3] - IP Pinger                    [7] - Password Strength Checker       [13] - Nitro Generator
+            [4] - Site Multitool               [8] - URL Shortener                   [14] - Server Info Checker
+                                               [9] - File Shredder                   [15] - Token Info Checker
+                                               [10] - Get Your PC Info
 """
     print(ascii_art)
 
 def tools_menu():
     clear()
     tools_ascii()
-    print("                [------Network Tools------]          [------Utility Tools------]             [------Discord Tools------]")
-    print("                     [1] - Grab Your Own IP             [5] - B64 Tools                       [10] - Webhook Multitool")
-    print("                     [2] - IP Lookup                    [6] - Username Lookup                 [11] - Token Validator")               
-    print("                     [3] - IP Pinger                    [7] - Password Strength Checker       [12] - Nitro Generator")
-    print("                     [4] - Site Multitool               [8] - URL Shortener                   [13] - Server Info Checker")
-    print("                                                        [9] - File Shredder                   [14] - Token Info Checker")
     raw_option = input("Option >> ")
     option = raw_option.lower().strip()
     if option == '1':
@@ -637,22 +684,26 @@ def tools_menu():
         file_shredder_download(run_option, download_option=False)
 
     elif option == '10':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        webhook_multitool_download(run_option, download_option=False)
+        get_pc_info()
+        tools_menu()
 
     elif option == '11':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        token_validator(run_option, download_option=False)
+        webhook_multitool_download(run_option, download_option=False)
 
     elif option == '12':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        nitro_gen_download(run_option, download_option=False)
+        token_validator(run_option, download_option=False)
 
     elif option == '13':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        server_checker(run_option, download_option=False)
+        nitro_gen_download(run_option, download_option=False)
 
     elif option == '14':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        server_checker(run_option, download_option=False)
+
+    elif option == '15':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         token_info_checker(run_option, download_option=False)
 
@@ -670,15 +721,12 @@ def tools_menu():
 
 def main_ascii():
     ascii_art = f"""  {Fore.LIGHTMAGENTA_EX}
-                   __       __   ______   ______  __    __        __       __  ________  __    __  __    __ 
-                  |  \     /  \ /      \ |      \|  \  |  \      |  \     /  \|        \|  \  |  \|  \  |  |
-                  | $$\   /  $$|  $$$$$$\ \$$$$$$| $$\ | $$      | $$\   /  $$| $$$$$$$$| $$\ | $$| $$  | $$
-                  | $$$\ /  $$$| $$__| $$  | $$  | $$$\| $$      | $$$\ /  $$$| $$__    | $$$\| $$| $$  | $$
-                  | $$$$\  $$$$| $$    $$  | $$  | $$$$\ $$      | $$$$\  $$$$| $$  \   | $$$$\ $$| $$  | $$
-                  | $$\$$ $$ $$| $$$$$$$$  | $$  | $$\$$ $$      | $$\$$ $$ $$| $$$$$   | $$\$$ $$| $$  | $$
-                  | $$ \$$$| $$| $$  | $$ _| $$_ | $$ \$$$$      | $$ \$$$| $$| $$_____ | $$ \$$$$| $$__/ $$
-                  | $$  \$ | $$| $$  | $$|   $$ \| $$  \$$$      | $$  \$ | $$| $$     \| $$  \$$$ \$$    $$
-                   \$$      \$$ \$$   \$$ \$$$$$$ \$$   \$$       \$$      \$$ \$$$$$$$$ \$$   \$$  \$$$$$$ 
+888 888b    | ,d88~~\ ~~~888~~~      e      888     888     888~~  888~-_              e    e      888~~  888b    | 888   | 
+888 |Y88b   | 8888       888        d8b     888     888     888___ 888   \            d8b  d8b     888___ |Y88b   | 888   | 
+888 | Y88b  | `Y88b      888       /Y88b    888     888     888    888    |          d888bdY88b    888    | Y88b  | 888   | 
+888 |  Y88b |  `Y88b,    888      /  Y88b   888     888     888    888   /          / Y88Y Y888b   888    |  Y88b | 888   | 
+888 |   Y88b|    8888    888     /____Y88b  888     888     888    888_-~          /   YY   Y888b  888    |   Y88b| Y88   | 
+888 |    Y888 \__88P'    888    /      Y88b 888____ 888____ 888___ 888 ~-_        /          Y888b 888___ |    Y888  "8__/  
                                                 __  _      ___ ___    
                                                  / |_ |\ |  |   | |_| 
                                                 /_ |_ | \| _|_  | | |  
@@ -783,6 +831,8 @@ def utility_tools_main():
     print("                 [2] - Run B64 Multitool")
     print("                 [3] - Run Password Strength Checker")
     print("                 [4] - Run File Shredder")
+    print("                 [5] - Run Url Shortener")
+    print("                 [6] - Get Your PC Info")
     raw_option = input("Option >> ")
     option = raw_option.lower().strip()
     if option == '1':
@@ -800,6 +850,14 @@ def utility_tools_main():
     elif option == '4':
         run_option = input("You wanna run the tool? [Y or N] >> ")
         file_shredder_download(run_option, download_option=False)
+
+    elif option == '5':
+        run_option = input("You wanna run the tool? [Y or N] >> ")
+        url_shortener(run_option, download_option=False)
+
+    elif option == '6':
+        get_pc_info()
+        utility_tools_main()
 
     elif option == 'b':
         print("Taking you to main menu...")
