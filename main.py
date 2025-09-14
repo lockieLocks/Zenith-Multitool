@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import random
-
 import requests
 import sys
 import time
@@ -31,9 +30,6 @@ def get_all_ips():
         hostname = local_ip = f"Could not fetch Hostname - Error >> {e}"
 
     print(f"Public IP >> {public_ip}\nLocal IP >> {local_ip}\nHostname >> {hostname}")
-
-
-
 
 def ip_pinger_download(run_option, return_to_menu=True, download_option=True):
     ip_pinger_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/ip_pinger/ip_pinger.py"
@@ -544,6 +540,7 @@ def get_pc_info():
     print(f"Python Version Info >> {platform.python_version()}")
     input("\nPress Enter to return...")
 
+
 def full_wipe():
     main_dir = os.getcwd()
     for name in os.listdir(main_dir):
@@ -615,8 +612,7 @@ def tools_ascii():
         ........jW##Wt     L#D.    E#fE#f     t#E E#t   t#E   E#t  E#t             t#E    EE    ;#f   EE    ;#f        G#W.       iWW;  
               tW##Kt     :K#Wfff;  E#t D#G    t#E E#t   t#E   E#t  E#t             t#E   f#.     t#i f#.     t#i      D#K.       L##Lffi
             tW##E;       i##WLLLLt E#t  f#E.  t#E E#t   t#E   E########f.          t#E   :#G     GK  :#G     GK      E#K.       tLLG##L 
-          tW##E;          .E#L     E#t   t#K: 
-          t#E E#t   t#E   E#j..K#j...          t#E    ;#L   LW.   ;#L   LW.    .E#E.          ,W#i  
+          tW##E;          .E#L     E#t   t#K: t#E E#t   t#E   E#j..K#j...          t#E    ;#L   LW.   ;#L   LW.    .E#E.          ,W#i  
        .fW##D,              f#E:   E#t    ;#W,t#E E#t   t#E   E#t  E#t             t#E     t#f f#:     t#f f#:    .K#E           j#E.   
      .f###D,                 ,WW;  E#t     :K#D#E E#t   t#E   E#t  E#t             t#E      f#D#;       f#D#;    .K#D          .D#j     
    .f####Gfffffffffff;        .D#; E#t      .E##E E#t   t#E   f#t  f#t             t#E       G#t         G#t    .W#G          ,WK,      
@@ -628,7 +624,7 @@ def tools_ascii():
                                ||    Press 404 to Exit                        ||
                  ==============||_____________________________________________||=======================   
                  ||            Step 1                    ||            Step 2                        ||
-                 || Press * To run setup.py (IMPORTANT)  ||     Press ! to Join the Discord Server   ||
+                 ||                                      ||     Press ! to Join the Discord Server   ||
                  ========================================||============================================
                  ||                                      ||                                          ||
                  ||                                      ||                                          ||
@@ -714,7 +710,6 @@ def tools_menu():
         print("Taking you to main menu...")
         time.sleep(0.5)
         main()
-
 
     input("Press Enter to Return...")
     tools_menu()
@@ -811,7 +806,6 @@ def main():
 
 def utility_ascii():
     ascii_art = f""" {Fore.LIGHTRED_EX}
-
   _    _ _   _ _ _ _           _______          _     
  | |  | | | (_) (_) |         |__   __|        | |    
  | |  | | |_ _| |_| |_ _   _     | | ___   ___ | |___ 
