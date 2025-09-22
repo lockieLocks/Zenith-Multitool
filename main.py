@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-import random
-import requests
-import sys
-import time
 import os
-import subprocess
-from colorama import Fore
+import platform
+import random
 import shutil
 import socket
-import platform
+import subprocess
+import sys
+import time
+import requests
+from colorama import Fore
 
 
 def clear():
@@ -217,22 +217,58 @@ def webhook_multitool_download(run_option, return_to_menu=True, download_option=
     except Exception as e:
         print(f"Error >> {e}")
 
-def site_checker(run_option, return_to_menu=True, download_option=True):
-    site_multitool_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/site_multitool/site_multitool.py"
+def site_delay_tracker_download(run_option, return_to_menu=True, download_option=True):
+    url = "https://raw.githubusercontent.com/lockieLocks/Tools/main/site_delay_tracker/site_delay_tracker.py"
     tools_folder = "Tools"
-    folder_name = os.path.join(tools_folder, "site_multitool")
+    folder_name = os.path.join(tools_folder, "site_delay_tracker")
     os.makedirs(folder_name, exist_ok=True)
-    filename = os.path.join(folder_name, "site_multitool.py")
+    filename = os.path.join(folder_name, "site_delay_tracker.py")
     try:
-        response = requests.get(site_multitool_link)
+        response = requests.get(url)
         if download_option:
             if not os.path.exists(filename):
                 if response.status_code == 200:
                     with open(filename, "wb") as file:
                         file.write(response.content)
-                        print("Successfully downloaded site_checker.py")
+                        print("Successfully downloaded site_delay_tracker.py")
                 else:
-                    print("Failed to Download site_checker.py")
+                    print("Failed to Download site_delay_tracker.py")
+            else:
+                print("File Already Exists...")
+                pass
+        else:
+            pass
+            if run_option.lower().strip() == 'y':
+                try:
+                    subprocess.run([sys.executable, filename])
+                except Exception as e:
+                    print(f"Error >> {e}")
+            else:
+                if return_to_menu:
+                    print("Returning...")
+                    time.sleep(0.5)
+                    tools_menu()
+                else:
+                    return
+    except Exception as e:
+        print(f"Error >> {e}")
+
+def site_redirect_tracker_download(run_option, return_to_menu=True, download_option=True):
+    url = "https://raw.githubusercontent.com/lockieLocks/Tools/main/site_redirect_tracker/site_redirect_tracker.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "site_redirect_tracker")
+    os.makedirs(folder_name, exist_ok=True)
+    filename = os.path.join(folder_name, "site_redirect_tracker.py")
+    try:
+        response = requests.get(url)
+        if download_option:
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded site_redirect_tracker.py")
+                else:
+                    print("Failed to Download site_redirect_tracker.py")
             else:
                 print("File Already Exists...")
                 pass
@@ -289,7 +325,7 @@ def nitro_gen_download(run_option, return_to_menu=True, download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
-def pwd_strength_checker(run_option, return_to_menu=True, download_option=True):
+def pwd_strength_checker_download(run_option, return_to_menu=True, download_option=True):
     pwd_strength_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/password_strength_checker.py/pwd_strength_checker.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "password_strength_checker.py")
@@ -326,7 +362,7 @@ def pwd_strength_checker(run_option, return_to_menu=True, download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
-def token_validator(run_option, return_to_menu=True, download_option=True):
+def token_validator_download(run_option, return_to_menu=True, download_option=True):
     token_validator_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/token_validator/token_validator.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "token_validator")
@@ -366,7 +402,7 @@ def token_validator(run_option, return_to_menu=True, download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
-def server_checker(run_option, return_to_menu=True, download_option=True):
+def server_checker_download(run_option, return_to_menu=True, download_option=True):
     server_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/server_checker/server_info_checker.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "server_checker")
@@ -402,7 +438,7 @@ def server_checker(run_option, return_to_menu=True, download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
-def url_shortener(run_option, return_to_menu=True, download_option=True):
+def url_shortener_download(run_option, return_to_menu=True, download_option=True):
     url_shortener_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/url_shortener/url_shortener.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "url_shortener")
@@ -438,7 +474,7 @@ def url_shortener(run_option, return_to_menu=True, download_option=True):
     except Exception as e:
         print(f"Error >> {e}")
 
-def token_info_checker(run_option, return_to_menu=True, download_option=True):
+def token_info_checker_download(run_option, return_to_menu=True, download_option=True):
     token_info_checker_link = "https://raw.githubusercontent.com/lockieLocks/Tools/main/token_info_checker/token_info_checker.py"
     tools_folder = "Tools"
     folder_name = os.path.join(tools_folder, "token_info_checker")
@@ -507,11 +543,47 @@ def file_shredder_download(run_option, return_to_menu=True, download_option=True
                 file_shredder_download(run_option='y', download_option=True)
             else:
                 pass
-            if run_option.lower().strip() == 'y':
-                try:
-                    subprocess.run([sys.executable, filename])
-                except Exception as e:
-                    print(f"Error >> {e}")
+        if run_option.lower().strip() == 'y':
+            try:
+                subprocess.run([sys.executable, filename])
+            except Exception as e:
+                print(f"Error >> {e}")
+        else:
+            if return_to_menu:
+                 print("Returning...")
+                 time.sleep(0.5)
+                 tools_menu()
+            else:
+                return
+    except Exception as e:
+        print(f"Error >> {e}")
+
+def roblox_player_count_tracker_download(run_option, return_to_menu=True, download_option=True):
+    url = "https://raw.githubusercontent.com/lockieLocks/Tools/main/roblox_player_count_tracker/roblox_player_count_tracker.py"
+    tools_folder = "Tools"
+    folder_name = os.path.join(tools_folder, "roblox_player_count_tracker")
+    os.makedirs(folder_name, exist_ok=True)
+    filename = os.path.join(folder_name, "roblox_player_count_tracker.py")
+    try:
+        response = requests.get(url)
+        if download_option:
+            if not os.path.exists(filename):
+                if response.status_code == 200:
+                    with open(filename, "wb") as file:
+                        file.write(response.content)
+                        print("Successfully downloaded roblox_player_count_tracker.py")
+                else:
+                    print("Failed to Download roblox_player_count_tracker.py")
+            else:
+                print("File Already Exists...")
+                pass
+        else:
+            pass
+        if run_option.lower().strip() == 'y':
+            try:
+                subprocess.run([sys.executable, filename])
+            except Exception as e:
+                print(f"Error >> {e}")
             else:
                 if return_to_menu:
                     print("Returning...")
@@ -593,18 +665,21 @@ def install_all():
     b64_download(run_option='n', return_to_menu=False)
     username_lookup_download(run_option='n', return_to_menu=False)
     webhook_multitool_download(run_option='n', return_to_menu=False)
-    site_checker(run_option='n', return_to_menu=False)
-    pwd_strength_checker(run_option='n', return_to_menu=False)
+    site_delay_tracker_download(run_option='n', return_to_menu=False)
+    pwd_strength_checker_download(run_option='n', return_to_menu=False)
     nitro_gen_download(run_option='n', return_to_menu=False)
-    token_validator(run_option='n', return_to_menu=False)
-    server_checker(run_option='n', return_to_menu=False)
-    url_shortener(run_option='n', return_to_menu=False)
-    token_info_checker(run_option='n', return_to_menu=False)
+    token_validator_download(run_option='n', return_to_menu=False)
+    server_checker_download(run_option='n', return_to_menu=False)
+    url_shortener_download(run_option='n', return_to_menu=False)
+    token_info_checker_download(run_option='n', return_to_menu=False)
+    file_shredder_download(run_option='n', return_to_menu=False)
+    roblox_player_count_tracker_download(run_option='n', return_to_menu=False)
+    site_redirect_tracker_download(run_option='n', return_to_menu=False)
     input("\nPress Enter to return...")
     tools_menu()
 
 def tools_ascii():
-    ascii_art = f""" {Fore.RED}                                                                                                                                        
+    ascii_art = f""" {Fore.RED}                                                                                                                                   
                                  ,;L.                                                        t#,         t#,                           .
                                f#i EW:        ,ft t           .    .                        ;##W.       ;##W.             i           ;W
                              .E#t  E##;       t#E Ej GEEEEEEELDi   Dt           GEEEEEEEL  :#L:WE      :#L:WE            LE          f#E
@@ -618,24 +693,24 @@ def tools_ascii():
    .f####Gfffffffffff;        .D#; E#t      .E##E E#t   t#E   f#t  f#t             t#E       G#t         G#t    .W#G          ,WK,      
   .fLLLLLLLLLLLLLLLLLi          tt ..         G#E E#t    fE    ii   ii              fE        t           t    :W##########Wt EG.       
                                                fE ,;.     :                          :                         :,,,,,,,,,,,,,.,         
-===================================================================================================================================================
-                               ||    Press b to return to main menu           ||
-                               ||    Press 99 to Install and Update all tools ||
-                               ||    Press 404 to Exit                        ||
-                 ==============||_____________________________________________||=======================   
-                 ||            Step 1                    ||            Step 2                        ||
-                 ||                                      ||     Press ! to Join the Discord Server   ||
-                 ========================================||============================================
-                 ||                                      ||                                          ||
-                 ||                                      ||                                          ||
-                 ||                                      ||                                          ||
-        [------Network Tools------]          [------Utility Tools------]             [------Discord Tools------]
-            [1] - Grab Your Own IP             [5] - B64 Tools                       [11] - Webhook Multitool
-            [2] - IP Lookup                    [6] - Username Lookup                 [12] - Token Validator
-            [3] - IP Pinger                    [7] - Password Strength Checker       [13] - Nitro Generator
-            [4] - Site Multitool               [8] - URL Shortener                   [14] - Server Info Checker
-                                               [9] - File Shredder                   [15] - Token Info Checker
-                                               [10] - Get Your PC Info
+{Fore.LIGHTWHITE_EX}==================================================================================================================================================={Fore.RED}
+                               {Fore.LIGHTWHITE_EX}||{Fore.RED}    Press {Fore.LIGHTWHITE_EX}b{Fore.RED} to return to main menu           {Fore.LIGHTWHITE_EX}||{Fore.RED}
+                               {Fore.LIGHTWHITE_EX}||{Fore.RED}    Press {Fore.LIGHTWHITE_EX}99{Fore.RED} to Install and Update all tools {Fore.LIGHTWHITE_EX}||{Fore.RED}
+                               {Fore.LIGHTWHITE_EX}||{Fore.RED}    Press {Fore.LIGHTWHITE_EX}404{Fore.RED} to Exit                        {Fore.LIGHTWHITE_EX}||{Fore.RED}
+                 {Fore.LIGHTWHITE_EX}==============||_____________________________________________||======================={Fore.RED}   
+                 {Fore.LIGHTWHITE_EX}||{Fore.RED}            Step 1{Fore.LIGHTWHITE_EX}:{Fore.RED}                   {Fore.LIGHTWHITE_EX}||{Fore.RED}                Step 2{Fore.LIGHTWHITE_EX}:{Fore.RED}                   {Fore.LIGHTWHITE_EX}||{Fore.RED}
+                 {Fore.LIGHTWHITE_EX}||{Fore.RED}     {Fore.YELLOW}Star{Fore.RED} The Tool in Github          {Fore.LIGHTWHITE_EX}||{Fore.RED}     Press {Fore.LIGHTWHITE_EX}!{Fore.RED} to Join the {Fore.BLUE}Discord{Fore.RED} Server   {Fore.LIGHTWHITE_EX}||{Fore.RED}
+                 ========================================{Fore.LIGHTWHITE_EX}||{Fore.RED}============================================
+                 {Fore.LIGHTWHITE_EX}||{Fore.RED}            Step 3:                   {Fore.LIGHTWHITE_EX}||{Fore.RED}                Step 4{Fore.LIGHTWHITE_EX}:{Fore.RED}                   {Fore.LIGHTWHITE_EX}||{Fore.RED}
+                 {Fore.LIGHTWHITE_EX}||{Fore.RED}     Press {Fore.LIGHTWHITE_EX}S{Fore.RED} to run the Setup         {Fore.LIGHTWHITE_EX}||{Fore.RED}             Enjoy Yourself               {Fore.LIGHTWHITE_EX}||{Fore.RED}
+                 {Fore.LIGHTWHITE_EX}||{Fore.RED}                                      {Fore.LIGHTWHITE_EX}||{Fore.RED}                                          {Fore.LIGHTWHITE_EX}||{Fore.RED}
+        {Fore.LIGHTWHITE_EX}[{Fore.RED}------Network Tools------{Fore.LIGHTWHITE_EX}]{Fore.RED}          {Fore.LIGHTWHITE_EX}[{Fore.RED}------Utility Tools------{Fore.LIGHTWHITE_EX}]{Fore.RED}           {Fore.LIGHTWHITE_EX}[{Fore.RED}------Discord Tools------{Fore.LIGHTWHITE_EX}]{Fore.RED}
+            {Fore.LIGHTWHITE_EX}[{Fore.RED}1{Fore.LIGHTWHITE_EX}]{Fore.RED} - Grab Your Own IP              {Fore.LIGHTWHITE_EX}[{Fore.RED}7{Fore.LIGHTWHITE_EX}]{Fore.RED} - B64 Tools                      {Fore.LIGHTWHITE_EX}[{Fore.RED}13{Fore.LIGHTWHITE_EX}]{Fore.RED} - Webhook Multitool
+            {Fore.LIGHTWHITE_EX}[{Fore.RED}2{Fore.LIGHTWHITE_EX}]{Fore.RED} - IP Lookup                     {Fore.LIGHTWHITE_EX}[{Fore.RED}8{Fore.LIGHTWHITE_EX}]{Fore.RED} - Username Lookup                {Fore.LIGHTWHITE_EX}[{Fore.RED}14{Fore.LIGHTWHITE_EX}]{Fore.RED} - Token Validator
+            {Fore.LIGHTWHITE_EX}[{Fore.RED}3{Fore.LIGHTWHITE_EX}]{Fore.RED} - IP Pinger                     {Fore.LIGHTWHITE_EX}[{Fore.RED}9{Fore.LIGHTWHITE_EX}]{Fore.RED} - Password Strength Checker      {Fore.LIGHTWHITE_EX}[{Fore.RED}15{Fore.LIGHTWHITE_EX}]{Fore.RED} - Nitro Generator
+            {Fore.LIGHTWHITE_EX}[{Fore.RED}4{Fore.LIGHTWHITE_EX}]{Fore.RED} - Site Delay Tracker            {Fore.LIGHTWHITE_EX}[{Fore.RED}10{Fore.LIGHTWHITE_EX}]{Fore.RED} - URL Shortener                 {Fore.LIGHTWHITE_EX}[{Fore.RED}16{Fore.LIGHTWHITE_EX}]{Fore.RED} - Server Info Checker
+            {Fore.LIGHTWHITE_EX}[{Fore.RED}5{Fore.LIGHTWHITE_EX}]{Fore.RED} - Site Redirect Checker         {Fore.LIGHTWHITE_EX}[{Fore.RED}11{Fore.LIGHTWHITE_EX}]{Fore.RED} - File Shredder                 {Fore.LIGHTWHITE_EX}[{Fore.RED}17{Fore.LIGHTWHITE_EX}]{Fore.RED} - Token Info Checker
+            {Fore.LIGHTWHITE_EX}[{Fore.RED}6{Fore.LIGHTWHITE_EX}]{Fore.RED} - Roblox Player Tracker         {Fore.LIGHTWHITE_EX}[{Fore.RED}12{Fore.LIGHTWHITE_EX}]{Fore.RED} - Get Your PC Info
 """
     print(ascii_art)
 
@@ -657,23 +732,23 @@ def tools_menu():
 
     elif option == '4':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        site_checker(run_option, download_option=False)
+        site_delay_tracker_download(run_option, download_option=False)
 
     elif option == '5':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        b64_download(run_option, download_option=False)
+        site_redirect_tracker_download(run_option, download_option=False)
 
     elif option == '6':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        username_lookup_download(run_option, download_option=False)
+        roblox_player_count_tracker_download(run_option, download_option=False)
 
     elif option == '7':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        pwd_strength_checker(run_option, download_option=False)
+        username_lookup_download(run_option, download_option=False)
 
     elif option == '8':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        url_shortener(run_option, download_option=False)
+        url_shortener_download(run_option, download_option=False)
 
     elif option == '9':
         run_option = input("You wanna run the tool? [Y or N] >> ")
@@ -689,7 +764,7 @@ def tools_menu():
 
     elif option == '12':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        token_validator(run_option, download_option=False)
+        token_validator_download(run_option, download_option=False)
 
     elif option == '13':
         run_option = input("You wanna run the tool? [Y or N] >> ")
@@ -697,11 +772,11 @@ def tools_menu():
 
     elif option == '14':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        server_checker(run_option, download_option=False)
+        server_checker_download(run_option, download_option=False)
 
     elif option == '15':
         run_option = input("You wanna run the tool? [Y or N] >> ")
-        token_info_checker(run_option, download_option=False)
+        token_info_checker_download(run_option, download_option=False)
 
     elif option == '99':
         update()
@@ -711,98 +786,103 @@ def tools_menu():
         time.sleep(0.5)
         main()
 
-    input("Press Enter to Return...")
-    tools_menu()
+    else:
+        print("Invalid Input...")
+        time.sleep(0.5)
+        tools_menu()
 
 def main_ascii():
     ascii_art = f"""  {Fore.LIGHTMAGENTA_EX}
-888 888b    | ,d88~~\ ~~~888~~~      e      888     888     888~~  888~-_              e    e      888~~  888b    | 888   | 
-888 |Y88b   | 8888       888        d8b     888     888     888___ 888   \            d8b  d8b     888___ |Y88b   | 888   | 
-888 | Y88b  | `Y88b      888       /Y88b    888     888     888    888    |          d888bdY88b    888    | Y88b  | 888   | 
-888 |  Y88b |  `Y88b,    888      /  Y88b   888     888     888    888   /          / Y88Y Y888b   888    |  Y88b | 888   | 
-888 |   Y88b|    8888    888     /____Y88b  888     888     888    888_-~          /   YY   Y888b  888    |   Y88b| Y88   | 
-888 |    Y888 \__88P'    888    /      Y88b 888____ 888____ 888___ 888 ~-_        /          Y888b 888___ |    Y888  "8__/  
+    
+        888 888b    | ,d88~~\ ~~~888~~~      e      888     888     888~~  888~-_              e    e      888~~  888b    | 888   | 
+        888 |Y88b   | 8888       888        d8b     888     888     888___ 888   \            d8b  d8b     888___ |Y88b   | 888   | 
+        888 | Y88b  | `Y88b      888       /Y88b    888     888     888    888    |          d888bdY88b    888    | Y88b  | 888   | 
+        888 |  Y88b |  `Y88b,    888      /  Y88b   888     888     888    888   /          / Y88Y Y888b   888    |  Y88b | 888   | 
+        888 |   Y88b|    8888    888     /____Y88b  888     888     888    888_-~          /   YY   Y888b  888    |   Y88b| Y88   | 
+        888 |    Y888 \__88P'    888    /      Y88b 888____ 888____ 888___ 888 ~-_        /          Y888b 888___ |    Y888  "8__/  
                                                 __  _      ___ ___    
                                                  / |_ |\ |  |   | |_| 
                                                 /_ |_ | \| _|_  | | |  
------------------------------------------------------------------------------------------------------------------------
-                                |                                                     |
-                                |   3:< Welcome to MAIN MENU of Lockie's multitool >:3 |
-                                |         404 - FULL WIPE AND REINSTALL               |
-                                |          100 - INSTALL and UPDATE ALL Tools         |
-                                |         t  - ALL Tools Runner")                     |
+{Fore.LIGHTWHITE_EX}----------------------------------------------------------------------------------------------------------------------------------------{Fore.LIGHTMAGENTA_EX}
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}                                                     {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}   {Fore.LIGHTWHITE_EX}3:<{Fore.LIGHTMAGENTA_EX} Welcome to MAIN MENU of Lockie's multitool {Fore.LIGHTWHITE_EX}>:3{Fore.LIGHTMAGENTA_EX}{Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}         {Fore.LIGHTWHITE_EX}404{Fore.LIGHTMAGENTA_EX} - FULL WIPE AND REINSTALL               {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}          {Fore.LIGHTWHITE_EX}100{Fore.LIGHTMAGENTA_EX} - INSTALL and UPDATE ALL Tools         {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}         {Fore.LIGHTWHITE_EX}T{Fore.LIGHTMAGENTA_EX}  - ALL Tools Runner")                     {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}
                                 -------------------------------------------------------
-                                |         d - Discord Tools runner                    |
-                                |         n - Network Tools runner                    |
-                                |         u - Utility Tools runner                   |
-                                |                 Have Fun :3                         |
-                                |_____________________________________________________|"""
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}         {Fore.LIGHTWHITE_EX}D{Fore.LIGHTMAGENTA_EX} - Discord Tools runner                    {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}         {Fore.LIGHTWHITE_EX}N{Fore.LIGHTMAGENTA_EX} - Network Tools runner                    {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}         {Fore.LIGHTWHITE_EX}U{Fore.LIGHTMAGENTA_EX} - Utility Tools runner                    {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}                 Have Fun :3                         {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}
+                                {Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}_____________________________________________________{Fore.LIGHTWHITE_EX}||{Fore.LIGHTMAGENTA_EX}"""
     print(ascii_art)
 
 def main():
-    clear()
-    main_ascii()
-    print("\n[1] - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator, Server Info Checker, Token Info Checker")
-    print("[2] - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
-    print("[3] - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker, Url Shortener, File Shredder")
-    print("[4] - Install All tools = All of above")
-    print("[99] - Exit")
-    raw_option = input("Option >> ")
-    option = raw_option.lower().strip()
-    if option == '1':
-        token_validator(run_option='n', return_to_menu=False)
-        webhook_multitool_download(run_option='n', return_to_menu=False)
-        nitro_gen_download(run_option='n', return_to_menu=False)
-        server_checker(run_option='n', return_to_menu=False)
-        token_info_checker(run_option='n', return_to_menu=False)
-        input("Press Enter to return...")
-        main()
+    while True:
+        clear()
+        main_ascii()
+        print(f"\n{Fore.LIGHTWHITE_EX}[{Fore.LIGHTMAGENTA_EX}1{Fore.LIGHTWHITE_EX}]{Fore.LIGHTMAGENTA_EX} - Install Discord Tools = Webhook spammer, Token Validator, Nitro Generator, Server Info Checker, Token Info Checker")
+        print(f"{Fore.LIGHTWHITE_EX}[{Fore.LIGHTMAGENTA_EX}2{Fore.LIGHTWHITE_EX}]{Fore.LIGHTMAGENTA_EX} - Install Network Tools = IP Lookup, IP Pinger, Site Multitool")
+        print(f"{Fore.LIGHTWHITE_EX}[{Fore.LIGHTMAGENTA_EX}3{Fore.LIGHTWHITE_EX}]{Fore.LIGHTMAGENTA_EX} - Install Utility Tools = Username lookup, B64 multitool, Pwd Strength Checker, Url Shortener, File Shredder")
+        print(f"{Fore.LIGHTWHITE_EX}[{Fore.LIGHTMAGENTA_EX}4{Fore.LIGHTWHITE_EX}]{Fore.LIGHTMAGENTA_EX} - Install All tools = All of above")
+        print(f"{Fore.LIGHTWHITE_EX}[{Fore.LIGHTMAGENTA_EX}99{Fore.LIGHTWHITE_EX}]{Fore.LIGHTMAGENTA_EX} - Exit")
+        raw_option = input("Option >> ")
+        option = raw_option.lower().strip()
+        if option == '1':
+            token_validator_download(run_option='n', return_to_menu=False)
+            webhook_multitool_download(run_option='n', return_to_menu=False)
+            nitro_gen_download(run_option='n', return_to_menu=False)
+            server_checker_download(run_option='n', return_to_menu=False)
+            token_info_checker_download(run_option='n', return_to_menu=False)
+            input("Press Enter to return...")
+            main()
 
-    elif option == '2':
-        ip_lookup_download(run_option='n', return_to_menu=False)
-        ip_pinger_download(run_option='n', return_to_menu=False)
-        site_checker(run_option='n', return_to_menu=False)
-        input("Press Enter to return...")
-        main()
+        elif option == '2':
+            ip_lookup_download(run_option='n', return_to_menu=False)
+            ip_pinger_download(run_option='n', return_to_menu=False)
+            site_delay_tracker_download(run_option='n', return_to_menu=False)
+            input("Press Enter to return...")
+            main()
 
-    elif option == '3':
-        username_lookup_download(run_option='n', return_to_menu=False)
-        b64_download(run_option='n', return_to_menu=False)
-        pwd_strength_checker(run_option='n', return_to_menu=False)
-        url_shortener(run_option='n', return_to_menu=False)
-        input("Press Enter to return...")
-        main()
+        elif option == '3':
+            username_lookup_download(run_option='n', return_to_menu=False)
+            b64_download(run_option='n', return_to_menu=False)
+            pwd_strength_checker_download(run_option='n', return_to_menu=False)
+            url_shortener_download(run_option='n', return_to_menu=False)
+            file_shredder_download(run_option='n', return_to_menu=False)
+            input("Press Enter to return...")
+            main()
 
-    elif option == '4':
-        install_all()
+        elif option == '4':
+            install_all()
 
-    elif option.lower().strip() == 't':
-        tools_menu()
+        elif option.lower().strip() == 't':
+            tools_menu()
 
-    elif option.lower().strip() == 'd':
-        discord_tools_main()
+        elif option.lower().strip() == 'd':
+            discord_tools_main()
 
-    elif option.lower().strip() == 'u':
-        utility_tools_main()
+        elif option.lower().strip() == 'u':
+            utility_tools_main()
 
-    elif option.lower().strip() == 'n':
-        network_main()
+        elif option.lower().strip() == 'n':
+            network_main()
 
-    elif option == '100':
-        update()
+        elif option == '100':
+            update()
 
-    elif option == '404':
-        full_cleanup()
+        elif option == '404':
+            full_cleanup()
 
-    elif option == '99':
-        print("Peace Out gng...")
-        time.sleep(0.5)
-        sys.exit()
+        elif option == '99':
+            print("Peace Out gng...")
+            time.sleep(0.5)
+            sys.exit()
 
-    else:
-        print("Returning")
-        time.sleep(0.5)
-        main()
+        else:
+            print("Returning")
+            time.sleep(0.5)
+            main()
 
 def utility_ascii():
     ascii_art = f""" {Fore.LIGHTRED_EX}
@@ -814,23 +894,24 @@ def utility_ascii():
   \____/ \__|_|_|_|\__|\__, |    |_|\___/ \___/|_|___/
                         __/ |                         
                        |___/                          
-                b - Return to main menu
+                {Fore.LIGHTWHITE_EX}b{Fore.LIGHTRED_EX} - Return to main menu
 """
     print(ascii_art)
 
 def utility_tools_main():
     clear()
     utility_ascii()
-    print("                 [1] - Run Username Lookup")
-    print("                 [2] - Run B64 Multitool")
-    print("                 [3] - Run Password Strength Checker")
-    print("                 [4] - Run File Shredder")
-    print("                 [5] - Run Url Shortener")
-    print("                 [6] - Get Your PC Info")
+    print(f"                 {Fore.LIGHTWHITE_EX}[{Fore.LIGHTRED_EX}1{Fore.LIGHTWHITE_EX}]{Fore.LIGHTRED_EX} - Run Username Lookup")
+    print(f"                 {Fore.LIGHTWHITE_EX}[{Fore.LIGHTRED_EX}2{Fore.LIGHTWHITE_EX}]{Fore.LIGHTRED_EX} - Run B64 Multitool")
+    print(f"                 {Fore.LIGHTWHITE_EX}[{Fore.LIGHTRED_EX}3{Fore.LIGHTWHITE_EX}]{Fore.LIGHTRED_EX} - Run Password Strength Checker")
+    print(f"                 {Fore.LIGHTWHITE_EX}[{Fore.LIGHTRED_EX}4{Fore.LIGHTWHITE_EX}]{Fore.LIGHTRED_EX} - Run File Shredder")
+    print(f"                 {Fore.LIGHTWHITE_EX}[{Fore.LIGHTRED_EX}5{Fore.LIGHTWHITE_EX}]{Fore.LIGHTRED_EX} - Run Url Shortener")
+    print(f"                 {Fore.LIGHTWHITE_EX}[{Fore.LIGHTRED_EX}6{Fore.LIGHTWHITE_EX}]{Fore.LIGHTRED_EX} - Get Your PC Info")
     raw_option = input("Option >> ")
     option = raw_option.lower().strip()
     if option == '1':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
         username_lookup_download(run_option, download_option=False)
 
     elif option == '2':
@@ -838,16 +919,19 @@ def utility_tools_main():
         b64_download(run_option, download_option=False)
 
     elif option == '3':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        pwd_strength_checker(run_option, download_option=False)
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
+        pwd_strength_checker_download(run_option, download_option=False)
 
     elif option == '4':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
         file_shredder_download(run_option, download_option=False)
 
     elif option == '5':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        url_shortener(run_option, download_option=False)
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
+        url_shortener_download(run_option, download_option=False)
 
     elif option == '6':
         get_pc_info()
@@ -877,16 +961,16 @@ $$ | \$$ |\$$$$$$$\  \$$$$  |\$$$$$\$$$$  |\$$$$$$  |$$ |      $$ | \$$\        
 \__|  \__| \_______|  \____/  \_____\____/  \______/ \__|      \__|  \__|         \__| \______/  \______/ \__|\_______/ 
                                                                                                                         
                                                                                                                         
-                                                b - Return To Main Menu"""
+                                                {Fore.LIGHTWHITE_EX}b{Fore.LIGHTBLUE_EX} - Return To Main Menu"""
     print(ascii_art)
 
 def network_main():
     clear()
     network_ascii()
-    print("                                     [1] - Grap Your own IPs")
-    print("                                     [2] - Run IP Lookup")
-    print("                                     [3] - Run IP Pinger")
-    print("                                     [4] - Run Site Multitool")
+    print(f"                                     {Fore.LIGHTWHITE_EX}[{Fore.LIGHTBLUE_EX}1{Fore.LIGHTWHITE_EX}]{Fore.LIGHTBLUE_EX} - Grap Your own IPs")
+    print(f"                                     {Fore.LIGHTWHITE_EX}[{Fore.LIGHTBLUE_EX}2{Fore.LIGHTWHITE_EX}]{Fore.LIGHTBLUE_EX} - Run IP Lookup")
+    print(f"                                     {Fore.LIGHTWHITE_EX}[{Fore.LIGHTBLUE_EX}3{Fore.LIGHTWHITE_EX}]{Fore.LIGHTBLUE_EX} - Run IP Pinger")
+    print(f"                                     {Fore.LIGHTWHITE_EX}[{Fore.LIGHTBLUE_EX}4{Fore.LIGHTWHITE_EX}]{Fore.LIGHTBLUE_EX} - Run Site Multitool")
     raw_option = input("Option >> ")
     option = raw_option.lower().strip()
     if option == '1':
@@ -895,21 +979,23 @@ def network_main():
         network_main()
 
     elif option == '2':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
         ip_lookup_download(run_option, download_option=False)
 
     elif option == '3':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
         ip_pinger_download(run_option, download_option=False)
 
     elif option == '4':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        site_checker(run_option, download_option=False)
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
+        site_delay_tracker_download(run_option, download_option=False)
 
     elif option == 'b':
         print("Taking you to main menu...")
         time.sleep(0.5)
-        main()
 
     else:
         print("Invalid...")
@@ -927,48 +1013,51 @@ def discord_ascii():
 /**    ** /** /////**/**   **/**   /** /**   /**  /**          /**    /**   /**/**   /** /** /////**
 /*******  /** ****** //***** //****** /***   //******          /**    //****** //******  *** ****** 
 ///////   // //////   /////   //////  ///     //////           //      //////   //////  /// //////  
-                                        b - Return to main menu"""
+                                        {Fore.LIGHTWHITE_EX}b{Fore.MAGENTA} - Return to main menu"""
     print(discord_ascii_art)
 
 def discord_tools_main():
     clear()
     discord_ascii()
-    print("                        [1] - Run Webhook Multitool")
-    print("                        [2] - Run Token Validator")
-    print("                        [3] - Run Nitro Generator")
-    print("                        [4] - Run Server Info Checker")
-    print("                        [5] - Run Token Info Checker")
+    print(f"                        {Fore.LIGHTWHITE_EX}[{Fore.MAGENTA}1{Fore.LIGHTWHITE_EX}[{Fore.MAGENTA} - Run Webhook Multitool")
+    print(f"                        {Fore.LIGHTWHITE_EX}[{Fore.MAGENTA}2{Fore.LIGHTWHITE_EX}]{Fore.MAGENTA} - Run Token Validator")
+    print(f"                        {Fore.LIGHTWHITE_EX}[{Fore.MAGENTA}3{Fore.LIGHTWHITE_EX}]{Fore.MAGENTA} - Run Nitro Generator")
+    print(f"                        {Fore.LIGHTWHITE_EX}[{Fore.MAGENTA}4{Fore.LIGHTWHITE_EX}]{Fore.MAGENTA} - Run Server Info Checker")
+    print(f"                        {Fore.LIGHTWHITE_EX}[{Fore.MAGENTA}5{Fore.LIGHTWHITE_EX}]{Fore.MAGENTA} - Run Token Info Checker")
     raw_option = input("Option >> ")
     option = raw_option.lower().strip()
     if option == '1':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
         webhook_multitool_download(run_option, download_option=False, return_to_menu=False)
 
     elif option == '2':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        token_validator(run_option, download_option=False, return_to_menu=False)
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
+        token_validator_download(run_option, download_option=False, return_to_menu=False)
 
     elif option == '3':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
         nitro_gen_download(run_option, download_option=False, return_to_menu=False)
 
     elif option == '4':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        server_checker(run_option, download_option=False, return_to_menu=False)
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
+        server_checker_download(run_option, download_option=False, return_to_menu=False)
 
     elif option == '5':
-        run_option = input("You wanna run the tool? [Y or N] >> ")
-        token_info_checker(run_option, download_option=False, return_to_menu=False)
+        run_raw = input("You wanna run the tool? [Y or N] >> ")
+        run_option = run_raw.lower().strip()
+        token_info_checker_download(run_option, download_option=False, return_to_menu=False)
 
     elif option.strip() == 'b':
         print("Taking you to main menu...")
         time.sleep(0.5)
-        main()
 
     else:
         print("Invalid...")
         time.sleep(0.5)
         discord_tools_main()
 
-if __name__ == '__main__':
-    main()
+main()
